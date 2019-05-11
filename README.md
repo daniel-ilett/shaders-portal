@@ -14,8 +14,11 @@ This project includes shaders for:
 This project was created using Unity 2019.1.0f2. It should work on other versions of Unity, although the project may need upgrading or downgrading.
 
 ## Authors
-
 This project, and the corresponding tutorial series, were written by [Daniel Ilett](https://danielilett.com/).
+
+## Assets
+This project uses the following assets:
+- ["Skybox Volume 2 (Nebula)" by Hedgehog Team](https://assetstore.unity.com/packages/2d/textures-materials/sky/skybox-volume-2-nebula-3392)
 
 ## Release
 
