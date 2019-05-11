@@ -19,6 +19,7 @@ This project, and the corresponding tutorial series, were written by [Daniel Ile
 ## Assets
 This project uses the following assets:
 - ["Skybox Volume 2 (Nebula)" by Hedgehog Team](https://assetstore.unity.com/packages/2d/textures-materials/sky/skybox-volume-2-nebula-3392)
+- ["Robot Sphere" by Razgrizzz Demon](https://assetstore.unity.com/packages/3d/characters/robots/robot-sphere-136226)
 
 ## Release
 
