@@ -24,28 +24,12 @@ public class PortalCamera : MonoBehaviour
 
     [SerializeField]
     private RenderTexture outPortalTex;
-
-    private void Update()
-    {
-        Vector3 relativePos = inPortal.InverseTransformPoint(transform.position);
-        Vector3 inCamPos = outPortal.TransformPoint(relativePos);
-
-        inPortalCamera.transform.position = inCamPos;
-        inPortalCamera.transform.rotation = transform.rotation * Quaternion.Inverse(inPortal.rotation) * outPortal.rotation;
-
-        inPortalCamera.nearClipPlane = Vector3.Distance(transform.position, inPortal.position);
-
-        relativePos = outPortal.InverseTransformPoint(transform.position);
-        Vector3 outCamPos = inPortal.TransformPoint(relativePos);
-
-        outPortalCamera.transform.position = outCamPos;
-        outPortalCamera.transform.rotation = transform.rotation * Quaternion.Inverse(outPortal.rotation) * inPortal.rotation;
-
-        outPortalCamera.nearClipPlane = Vector3.Distance(transform.position, outPortal.position);
-    }
-
+    
     private void OnRenderImage(RenderTexture src, RenderTexture dst)
     {
+        RenderCamera(inPortal, outPortal, inPortalCamera);
+        RenderCamera(outPortal, inPortal, outPortalCamera);
+
         portalMaterial.SetTexture("_PortalTex", inPortalTex);
         portalMaterial.SetInt("_MaskID", 1);
         Graphics.Blit(src, src, portalMaterial, 1);
@@ -55,5 +39,17 @@ public class PortalCamera : MonoBehaviour
         Graphics.Blit(src, src, portalMaterial, 1);
 
         Graphics.Blit(src, dst);
+    }
+
+    private void RenderCamera(Transform inPortal, Transform outPortal, Camera renderCamera)
+    {
+        Vector3 relativePos = inPortal.InverseTransformPoint(transform.position);
+        Vector3 inCamPos = outPortal.TransformPoint(relativePos);
+
+        renderCamera.transform.position = inCamPos;
+        renderCamera.transform.rotation = transform.rotation * Quaternion.Inverse(inPortal.rotation) * outPortal.rotation;
+
+        renderCamera.nearClipPlane = Vector3.Distance(transform.position, inPortal.position);
+        renderCamera.Render();
     }
 }
