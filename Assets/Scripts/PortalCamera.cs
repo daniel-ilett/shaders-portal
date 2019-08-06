@@ -49,7 +49,7 @@ public class PortalCamera : MonoBehaviour
 
         Quaternion newLookRotation = Quaternion.LookRotation(newForwardDir, newUpDir);
 
-        renderCamera.transform.localRotation = Quaternion.Euler(0, 180, 0) * newLookRotation;
+        renderCamera.transform.rotation = Quaternion.Euler(0, 180, 0) * newLookRotation;
         
         //renderCamera.transform.rotation = transform.rotation * Quaternion.Inverse(inPortal.rotation) * outPortal.rotation;
 
