@@ -4,10 +4,22 @@ using UnityEngine;
 
 public class Portal : MonoBehaviour
 {
-    private List<Rigidbody> rigidbodies = new List<Rigidbody>();
-
     [SerializeField]
     private Portal otherPortal;
+
+    private List<Rigidbody> rigidbodies = new List<Rigidbody>();
+
+    private new Collider collider;
+
+    private void Awake()
+    {
+        collider = GetComponent<Collider>();
+    }
+
+    private void Start()
+    {
+        
+    }
 
     private void FixedUpdate()
     {
