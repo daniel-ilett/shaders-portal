@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(BoxCollider))]
 public class Portal : MonoBehaviour
 {
     [SerializeField]
@@ -9,16 +10,22 @@ public class Portal : MonoBehaviour
 
     private List<Rigidbody> rigidbodies = new List<Rigidbody>();
 
-    private new Collider collider;
+    private new BoxCollider collider;
 
     private void Awake()
     {
-        collider = GetComponent<Collider>();
+        collider = GetComponent<BoxCollider>();
     }
 
     private void Start()
     {
-        
+        var diameter = PlayerController.instance.GetColliderRadius() * 3.0f;
+
+        var transformScale = transform.localScale;
+        var size = new Vector3(1.01f - diameter / transformScale.x, 
+            1.01f - diameter / transform.localScale.y, collider.size.z);
+
+        collider.size = size;
     }
 
     private void FixedUpdate()
@@ -29,7 +36,6 @@ public class Portal : MonoBehaviour
             
             if(objPos.z > 0.0f)
             {
-                Debug.Log(Time.time + " Object is through portal.");
                 Warp(rigidbodies[i]);
             }
         }
@@ -59,6 +65,12 @@ public class Portal : MonoBehaviour
         if (otherRigidbody != null)
         {
             rigidbodies.Add(otherRigidbody);
+
+            var player = other.GetComponent<PlayerController>();
+            if(player != null)
+            {
+                player.ChangePortalTriggerCount(1);
+            }
         }
     }
 
@@ -69,6 +81,12 @@ public class Portal : MonoBehaviour
         if(rigidbodies.Contains(otherRigidbody))
         {
             rigidbodies.Remove(otherRigidbody);
+
+            var player = other.GetComponent<PlayerController>();
+            if (player != null)
+            {
+                player.ChangePortalTriggerCount(-1);
+            }
         }
     }
 }

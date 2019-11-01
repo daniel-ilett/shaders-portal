@@ -192,6 +192,7 @@ GameObject:
   - component: {fileID: 3869327201516543214}
   - component: {fileID: 3869327201516543215}
   - component: {fileID: 3869327201516543208}
+  - component: {fileID: 1981272916595916677}
   - component: {fileID: 3869327201516543209}
   - component: {fileID: 3869327201516543212}
   m_Layer: 8
@@ -208,7 +209,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3869327201516543202}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.11, y: 8.14, z: 6.33}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -277,6 +278,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraTransform: {fileID: 3869327201008158683}
+--- !u!114 &1981272916595916677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3869327201516543202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9be0ad2dfdb8c31448bdc9e9ef591aec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!54 &3869327201516543209
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -304,7 +317,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.25
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3869327201949883065
 GameObject:
