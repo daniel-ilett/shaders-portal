@@ -6,6 +6,9 @@ using UnityEngine;
 public class Portal : MonoBehaviour
 {
     [SerializeField]
+    private List<Transform> portalCorners;
+
+    [SerializeField]
     private Portal otherPortal;
 
     private List<Rigidbody> rigidbodies = new List<Rigidbody>();
@@ -39,6 +42,11 @@ public class Portal : MonoBehaviour
                 Warp(rigidbodies[i]);
             }
         }
+    }
+
+    public List<Transform> GetCorners()
+    {
+        return portalCorners;
     }
 
     private void Warp(Rigidbody warpObj)

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3869327200655888824}
   m_Layer: 0
   m_Name: PortalCamera 1
-  m_TagString: MainCamera
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24,8 +24,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3869327200655888831}
-  m_LocalRotation: {x: -0.19769976, y: 0.76848376, z: -0.2816712, w: -0.5394525}
-  m_LocalPosition: {x: 8.97, y: 5.3999996, z: 3.4099998}
+  m_LocalRotation: {x: -0, y: 0.7071069, z: -0, w: 0.70710665}
+  m_LocalPosition: {x: 6.330002, y: -2, z: 19.649998}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3869327201516543213}
@@ -85,7 +85,7 @@ GameObject:
   - component: {fileID: 3869327201008158683}
   - component: {fileID: 3869327201008158680}
   - component: {fileID: 3869327201008158681}
-  - component: {fileID: 3869327201008158682}
+  - component: {fileID: 2817211885609150777}
   m_Layer: 8
   m_Name: Camera
   m_TagString: MainCamera
@@ -158,7 +158,7 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3869327201008158686}
   m_Enabled: 1
---- !u!114 &3869327201008158682
+--- !u!114 &2817211885609150777
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -290,6 +290,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9be0ad2dfdb8c31448bdc9e9ef591aec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wallCollider: {fileID: 0}
 --- !u!54 &3869327201516543209
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -317,7 +318,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.25
+  m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3869327201949883065
 GameObject:
@@ -331,7 +332,7 @@ GameObject:
   - component: {fileID: 3869327201949883064}
   m_Layer: 0
   m_Name: PortalCamera 2
-  m_TagString: MainCamera
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -343,8 +344,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3869327201949883065}
-  m_LocalRotation: {x: 0.054613937, y: 0.8733097, z: -0.26586145, w: 0.4045556}
-  m_LocalPosition: {x: -2.12, y: 2.2091513, z: 2.6099997}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: -0.7071068}
+  m_LocalPosition: {x: 19.65, y: 2, z: -6.33}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3869327201516543213}
