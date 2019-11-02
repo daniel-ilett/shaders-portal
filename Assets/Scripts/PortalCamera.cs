@@ -66,8 +66,6 @@ public class PortalCamera : MonoBehaviour
         renderCamera.transform.rotation = Quaternion.Euler(0, 180, 0) * newLookRotation;
 
         // Set the camera's oblique view frustum.
-        var corners = outPortal.GetCorners();
-
         Plane p = new Plane(-outTransform.forward, outTransform.position);
         Vector4 clipPlane = new Vector4(p.normal.x, p.normal.y, p.normal.z, p.distance);
         Vector4 clipPlaneCameraSpace =
