@@ -31,9 +31,11 @@ public class CameraMove : MonoBehaviour
     private void FixedUpdate()
 	{
         // Rotate the camera child object.
-        Vector3 rotation = cameraTransform.eulerAngles;
-		rotation += (Vector3)(rotateInput * cameraSpeed);
-        cameraTransform.eulerAngles = rotation;
+        //Vector3 rotation = cameraTransform.eulerAngles;
+		//rotation += (Vector3)(rotateInput * cameraSpeed);
+        //cameraTransform.eulerAngles = rotation;
+
+        cameraTransform.Rotate(rotateInput * cameraSpeed);
         
         // Move the camera parent object.
         rigidbody.velocity = cameraTransform.TransformDirection(moveInput * moveSpeed);
