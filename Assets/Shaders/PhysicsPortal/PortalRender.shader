@@ -86,7 +86,7 @@
                 return o;
             }
 
-            sampler2D _PortalTex;
+            uniform sampler2D _PortalTex;
 
             fixed4 frag (v2f i) : SV_Target
             {

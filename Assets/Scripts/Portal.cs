@@ -26,9 +26,11 @@ public class Portal : MonoBehaviour
             1.01f - diameter / transform.localScale.y, collider.size.z);
 
         collider.size = size;
+
+        transform.position -= transform.forward * 0.0001f;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         for(int i = 0; i < rigidbodies.Count; ++i)
         {
