@@ -1,0 +1,404 @@
+fileFormatVersion: 2
+guid: 396937e56635348ad9ea9026d533848f
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: arm2
+    100002: arm2 1
+    100004: arm2 2
+    100006: ballJoint1
+    100008: ballJoint1 1
+    100010: ballJoint1 2
+    100012: ballJoint2
+    100014: ballJoint2 1
+    100016: ballJoint2 2
+    100018: body
+    100020: body_manip
+    100022: bolt1
+    100024: bolt1 1
+    100026: bolt1 2
+    100028: bolt2
+    100030: bolt2 1
+    100032: bolt2 2
+    100034: bolt3
+    100036: bolt3 1
+    100038: bolt3 2
+    100040: bolt4
+    100042: bolt4 1
+    100044: bolt4 2
+    100046: bolt5
+    100048: bolt5 1
+    100050: bolt5 2
+    100052: bolt6
+    100054: bolt6 1
+    100056: bolt6 2
+    100058: bolt7
+    100060: bolt7 1
+    100062: bolt7 2
+    100064: bolt8
+    100066: bolt8 1
+    100068: bolt8 2
+    100070: //RootNode
+    100072: eyeDome
+    100074: eyeDome1
+    100076: eyeLid
+    100078: eyeLid_manip
+    100080: eyes_manip
+    100082: eyesVisor_manip
+    100084: ikHandle1
+    100086: ikHandle2
+    100088: ikHandle3
+    100090: l_eye
+    100092: l_eye_manip
+    100094: left_arm
+    100096: left_arm_end
+    100098: left_arm_jt
+    100100: left_elbow_jt
+    100102: left_leg_manip
+    100104: left_leg_poleVector
+    100106: left_leg_poleVectorDoc
+    100108: left_legDocking
+    100110: left_plate
+    100112: legGuide
+    100114: legGuide1
+    100116: legGuide2
+    100118: lookingAt_manip
+    100120: main_jt
+    100122: r_eye
+    100124: r_eye_manip
+    100126: rear_arm
+    100128: rear_arm_end
+    100130: rear_arm_jt
+    100132: rear_elbow_jt
+    100134: rear_leg_manip
+    100136: rear_leg_poleVector
+    100138: rear_leg_poleVectorDoc
+    100140: rear_legDocking
+    100142: rear_plate
+    100144: right_arm
+    100146: right_arm_end
+    100148: right_arm_jt
+    100150: right_elbow_jt
+    100152: right_leg_manip
+    100154: right_leg_poleVector
+    100156: right_leg_poleVectorDoc
+    100158: right_legDocking
+    100160: right_plate
+    100162: roll_manip
+    400000: arm2
+    400002: arm2 1
+    400004: arm2 2
+    400006: ballJoint1
+    400008: ballJoint1 1
+    400010: ballJoint1 2
+    400012: ballJoint2
+    400014: ballJoint2 1
+    400016: ballJoint2 2
+    400018: body
+    400020: body_manip
+    400022: bolt1
+    400024: bolt1 1
+    400026: bolt1 2
+    400028: bolt2
+    400030: bolt2 1
+    400032: bolt2 2
+    400034: bolt3
+    400036: bolt3 1
+    400038: bolt3 2
+    400040: bolt4
+    400042: bolt4 1
+    400044: bolt4 2
+    400046: bolt5
+    400048: bolt5 1
+    400050: bolt5 2
+    400052: bolt6
+    400054: bolt6 1
+    400056: bolt6 2
+    400058: bolt7
+    400060: bolt7 1
+    400062: bolt7 2
+    400064: bolt8
+    400066: bolt8 1
+    400068: bolt8 2
+    400070: //RootNode
+    400072: eyeDome
+    400074: eyeDome1
+    400076: eyeLid
+    400078: eyeLid_manip
+    400080: eyes_manip
+    400082: eyesVisor_manip
+    400084: ikHandle1
+    400086: ikHandle2
+    400088: ikHandle3
+    400090: l_eye
+    400092: l_eye_manip
+    400094: left_arm
+    400096: left_arm_end
+    400098: left_arm_jt
+    400100: left_elbow_jt
+    400102: left_leg_manip
+    400104: left_leg_poleVector
+    400106: left_leg_poleVectorDoc
+    400108: left_legDocking
+    400110: left_plate
+    400112: legGuide
+    400114: legGuide1
+    400116: legGuide2
+    400118: lookingAt_manip
+    400120: main_jt
+    400122: r_eye
+    400124: r_eye_manip
+    400126: rear_arm
+    400128: rear_arm_end
+    400130: rear_arm_jt
+    400132: rear_elbow_jt
+    400134: rear_leg_manip
+    400136: rear_leg_poleVector
+    400138: rear_leg_poleVectorDoc
+    400140: rear_legDocking
+    400142: rear_plate
+    400144: right_arm
+    400146: right_arm_end
+    400148: right_arm_jt
+    400150: right_elbow_jt
+    400152: right_leg_manip
+    400154: right_leg_poleVector
+    400156: right_leg_poleVectorDoc
+    400158: right_legDocking
+    400160: right_plate
+    400162: roll_manip
+    2300000: arm2
+    2300002: arm2 1
+    2300004: arm2 2
+    2300006: ballJoint1
+    2300008: ballJoint1 1
+    2300010: ballJoint1 2
+    2300012: ballJoint2
+    2300014: ballJoint2 1
+    2300016: ballJoint2 2
+    2300018: body
+    2300020: bolt1
+    2300022: bolt1 1
+    2300024: bolt1 2
+    2300026: bolt2
+    2300028: bolt2 1
+    2300030: bolt2 2
+    2300032: bolt3
+    2300034: bolt3 1
+    2300036: bolt3 2
+    2300038: bolt4
+    2300040: bolt4 1
+    2300042: bolt4 2
+    2300044: bolt5
+    2300046: bolt5 1
+    2300048: bolt5 2
+    2300050: bolt6
+    2300052: bolt6 1
+    2300054: bolt6 2
+    2300056: bolt7
+    2300058: bolt7 1
+    2300060: bolt7 2
+    2300062: bolt8
+    2300064: bolt8 1
+    2300066: bolt8 2
+    2300068: eyeDome
+    2300070: eyeDome1
+    2300072: eyeLid
+    2300074: l_eye
+    2300076: left_arm
+    2300078: left_plate
+    2300080: r_eye
+    2300082: rear_arm
+    2300084: rear_plate
+    2300086: right_arm
+    2300088: right_plate
+    3300000: arm2
+    3300002: arm2 1
+    3300004: arm2 2
+    3300006: ballJoint1
+    3300008: ballJoint1 1
+    3300010: ballJoint1 2
+    3300012: ballJoint2
+    3300014: ballJoint2 1
+    3300016: ballJoint2 2
+    3300018: body
+    3300020: bolt1
+    3300022: bolt1 1
+    3300024: bolt1 2
+    3300026: bolt2
+    3300028: bolt2 1
+    3300030: bolt2 2
+    3300032: bolt3
+    3300034: bolt3 1
+    3300036: bolt3 2
+    3300038: bolt4
+    3300040: bolt4 1
+    3300042: bolt4 2
+    3300044: bolt5
+    3300046: bolt5 1
+    3300048: bolt5 2
+    3300050: bolt6
+    3300052: bolt6 1
+    3300054: bolt6 2
+    3300056: bolt7
+    3300058: bolt7 1
+    3300060: bolt7 2
+    3300062: bolt8
+    3300064: bolt8 1
+    3300066: bolt8 2
+    3300068: eyeDome
+    3300070: eyeDome1
+    3300072: eyeLid
+    3300074: l_eye
+    3300076: left_arm
+    3300078: left_plate
+    3300080: r_eye
+    3300082: rear_arm
+    3300084: rear_plate
+    3300086: right_arm
+    3300088: right_plate
+    4300000: arm2
+    4300002: bolt7
+    4300004: bolt5
+    4300006: bolt8
+    4300008: bolt6
+    4300010: rear_plate
+    4300012: rear_arm
+    4300014: bolt3
+    4300016: bolt1
+    4300018: bolt4
+    4300020: bolt2
+    4300022: ballJoint1
+    4300024: ballJoint2
+    4300026: arm2
+    4300028: bolt7
+    4300030: bolt5
+    4300032: bolt8
+    4300034: bolt6
+    4300036: right_plate
+    4300038: right_arm
+    4300040: bolt3
+    4300042: bolt1
+    4300044: bolt4
+    4300046: bolt2
+    4300048: ballJoint1
+    4300050: ballJoint2
+    4300052: arm2
+    4300054: bolt7
+    4300056: bolt5
+    4300058: bolt8
+    4300060: bolt6
+    4300062: left_plate
+    4300064: left_arm
+    4300066: bolt3
+    4300068: bolt1
+    4300070: bolt4
+    4300072: bolt2
+    4300074: ballJoint1
+    4300076: ballJoint2
+    4300078: body
+    4300080: eyeLid
+    4300082: eyeDome
+    4300084: eyeDome1
+    4300086: l_eye
+    4300088: r_eye
+    7400000: Take 001
+    9500000: //RootNode
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: body_matAi
+    second: {fileID: 2100000, guid: 9f2645559b8b14773b709fbd9bd6e2ff, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: eye_matAi
+    second: {fileID: 2100000, guid: f5da68cd484f44ced9e11ab1ad6a9c1a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: visor_matAi
+    second: {fileID: 2100000, guid: 01377584c22b84f819ecac7f4047c921, type: 2}
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 0
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
