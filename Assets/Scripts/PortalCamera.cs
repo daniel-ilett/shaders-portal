@@ -62,8 +62,10 @@ public class PortalCamera : MonoBehaviour
         Vector3 newForwardDir = outTransform.TransformDirection(relativeForwardDir);
 
         Quaternion newLookRotation = Quaternion.LookRotation(newForwardDir, newUpDir);
+        //Quaternion rotation = Quaternion.AngleAxis(180.0f, newUpDir);
 
-        renderCamera.transform.rotation = Quaternion.Euler(0, 180, 0) * newLookRotation;
+        renderCamera.transform.localRotation = Quaternion.Euler(0, 180, 0) * newLookRotation;
+        //renderCamera.transform.localRotation = rotation * newLookRotation;
 
         // Set the camera's oblique view frustum.
         Plane p = new Plane(-outTransform.forward, outTransform.position);
