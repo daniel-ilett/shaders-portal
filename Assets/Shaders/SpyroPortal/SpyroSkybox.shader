@@ -1,4 +1,4 @@
-﻿Shader "Portals/WorldPortal"
+﻿Shader "Portals/SpyroPortal"
 {
     Properties
     {
