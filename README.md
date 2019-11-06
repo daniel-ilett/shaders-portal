@@ -18,8 +18,9 @@ This project, and the corresponding tutorial series, were written by [Daniel Ile
 
 ## Assets
 This project uses the following assets:
-- ["Skybox Volume 2 (Nebula)" by Hedgehog Team](https://assetstore.unity.com/packages/2d/textures-materials/sky/skybox-volume-2-nebula-3392)
-- ["Robot Sphere" by Razgrizzz Demon](https://assetstore.unity.com/packages/3d/characters/robots/robot-sphere-136226)
+- ["Skybox Volume 2 (Nebula)" by Hedgehog Team, Unity Asset Store](https://assetstore.unity.com/packages/2d/textures-materials/sky/skybox-volume-2-nebula-3392)
+- ["Robot Sphere" by Razgrizzz Demon, Unity Asset Store](https://assetstore.unity.com/packages/3d/characters/robots/robot-sphere-136226)
+- ["Low Poly Hand Painted Dungeon Arch" by BitGem, Sketchfab](https://sketchfab.com/3d-models/low-poly-hand-painted-dungeon-arch-0040f94c8efd43639d8010874e4fefb6)
 
 ## Release
 
