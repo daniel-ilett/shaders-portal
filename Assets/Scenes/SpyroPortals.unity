@@ -211,28 +211,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1 &1074646825 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1074646825, guid: a06a1dcd731faf644805b633d8e16016,
-    type: 3}
-  m_PrefabInstance: {fileID: 1904340178098456113}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1074646826
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1074646825}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b487d9fc413ecd9438460f0cc5ddb044, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 1330197182856677568}
-  portalMaterials:
-  - {fileID: 2100000, guid: a489a289a8f477a43afb3911e7076476, type: 2}
-  - {fileID: 2100000, guid: a7802d2f1dcc85644b77ec30c383a444, type: 2}
 --- !u!54 &1330197182856677568 stripped
 Rigidbody:
   m_CorrespondingSourceObject: {fileID: 6328314078795393052, guid: bd8d68b1e9f434449a46b8ee92326b67,
@@ -306,6 +284,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6799095543027576075, guid: a06a1dcd731faf644805b633d8e16016,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1330197182856677568}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a06a1dcd731faf644805b633d8e16016, type: 3}
 --- !u!1001 &5019120404864049372
