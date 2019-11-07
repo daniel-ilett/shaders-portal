@@ -27,18 +27,33 @@ public class PortalCamera : MonoBehaviour
 
     private void OnRenderImage(RenderTexture src, RenderTexture dst)
     {
-        RenderCamera(portals[0], portals[1], portalCameras[0]);
-        RenderCamera(portals[1], portals[0], portalCameras[1]);
+        int maskID1 = 1;
+        int maskID2 = 2;
 
-        // Render the first portal output onto the image.
-        portalMaterial.SetTexture("_PortalTex", portalTextures[0]);
-        portalMaterial.SetInt("_MaskID", 1);
-        Graphics.Blit(src, src, portalMaterial, 1);
+        portals[0].SetMaskID(maskID1);
+        portals[1].SetMaskID(maskID2);
 
-        // Render the second portal output onto the image.
-        portalMaterial.SetTexture("_PortalTex", portalTextures[1]);
-        portalMaterial.SetInt("_MaskID", 2);
-        Graphics.Blit(src, src, portalMaterial, 1);
+        for (int i = 0; i < iterations; ++i)
+        {
+            portals[0].SetMaskID(maskID2);
+            Graphics.SetRenderTarget(portalTextures[0].colorBuffer, portalTextures[0].depthBuffer);
+            RenderCamera(portals[0], portals[1], portalCameras[0]);
+
+            // Render the first portal output onto the image.
+            portalMaterial.SetInt("_MaskID", maskID1);
+            Graphics.Blit(portalTextures[0], src, portalMaterial, 1);
+
+            portals[1].SetMaskID(maskID1);
+            Graphics.SetRenderTarget(portalTextures[1].colorBuffer, portalTextures[1].depthBuffer);
+            RenderCamera(portals[1], portals[0], portalCameras[1]);
+
+            // Render the second portal output onto the image.
+            portalMaterial.SetInt("_MaskID", maskID2);
+            Graphics.Blit(portalTextures[1], src, portalMaterial, 1);
+        }
+
+        portals[0].SetMaskID(maskID1);
+        portals[1].SetMaskID(maskID2);
 
         Graphics.Blit(src, dst);
     }

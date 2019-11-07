@@ -10,11 +10,13 @@ public class Portal : MonoBehaviour
 
     private List<Rigidbody> rigidbodies = new List<Rigidbody>();
 
+    private Material material;
     private new BoxCollider collider;
 
     private void Awake()
     {
         collider = GetComponent<BoxCollider>();
+        material = GetComponent<Renderer>().material;
     }
 
     private void Start()
@@ -41,6 +43,11 @@ public class Portal : MonoBehaviour
                 Warp(rigidbodies[i]);
             }
         }
+    }
+
+    public void SetMaskID(int id)
+    {
+        material.SetInt("_MaskID", id);
     }
 
     private void Warp(Rigidbody warpObj)
