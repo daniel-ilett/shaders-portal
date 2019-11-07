@@ -11,10 +11,9 @@ public class PortalCamera : MonoBehaviour
     private Camera[] portalCameras = new Camera[2];
 
     [SerializeField]
-    private RenderTexture[] portalTextures = new RenderTexture[2];
-
-    [SerializeField]
     private Material portalMaterial;
+
+    private RenderTexture tempTexture;
 
     private Camera mainCamera;
 
@@ -25,6 +24,7 @@ public class PortalCamera : MonoBehaviour
     private void Awake()
     {
         mainCamera = GetComponent<Camera>();
+        tempTexture = new RenderTexture(Screen.width, Screen.height, 24);
     }
 
     private void Start()
@@ -41,18 +41,18 @@ public class PortalCamera : MonoBehaviour
         for (int i = 0; i < iterations; ++i)
         {
             portals[0].SetMaskID(maskID2);
-            RenderCamera(portals[0], portals[1], portalCameras[0], portalTextures[0]);
+            RenderCamera(portals[0], portals[1], portalCameras[0], tempTexture);
 
             // Render the first portal output onto the image.
             portalMaterial.SetInt("_MaskID", maskID1);
-            Graphics.Blit(portalTextures[0], src, portalMaterial);
+            Graphics.Blit(tempTexture, src, portalMaterial);
 
             portals[1].SetMaskID(maskID1);
-            RenderCamera(portals[1], portals[0], portalCameras[1], portalTextures[1]);
+            RenderCamera(portals[1], portals[0], portalCameras[1], tempTexture);
 
             // Render the second portal output onto the image.
             portalMaterial.SetInt("_MaskID", maskID2);
-            Graphics.Blit(portalTextures[1], src, portalMaterial);
+            Graphics.Blit(tempTexture, src, portalMaterial);
         }
 
         portals[0].SetMaskID(maskID1);
