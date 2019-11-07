@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PortalCamera : MonoBehaviour
+public class BasicPortalCamera : MonoBehaviour
 {
     [SerializeField]
     private Portal[] portals = new Portal[2];
@@ -19,7 +19,6 @@ public class PortalCamera : MonoBehaviour
 
     private const int maskID1 = 1;
     private const int maskID2 = 2;
-    private const int iterations = 5;
 
     private void Awake()
     {

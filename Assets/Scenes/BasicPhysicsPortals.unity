@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -320,7 +320,7 @@ PrefabInstance:
     - target: {fileID: 3869327201516543202, guid: 09a391e652641814aa700d3d3c095ceb,
         type: 3}
       propertyPath: m_Name
-      value: PortalCamera
+      value: BasicPortalCamera
       objectReference: {fileID: 0}
     - target: {fileID: 3869327201516543213, guid: 09a391e652641814aa700d3d3c095ceb,
         type: 3}
@@ -392,21 +392,6 @@ PrefabInstance:
       propertyPath: portals.Array.data[1]
       value: 
       objectReference: {fileID: 1271385945}
-    - target: {fileID: 2817211885609150777, guid: 09a391e652641814aa700d3d3c095ceb,
-        type: 3}
-      propertyPath: recursionCamera
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2817211885609150777, guid: 09a391e652641814aa700d3d3c095ceb,
-        type: 3}
-      propertyPath: recursionTexture
-      value: 
-      objectReference: {fileID: 8400000, guid: 06e8b4b56d7a3b44096233ed599a28c1, type: 2}
-    - target: {fileID: 3799159787505222917, guid: 09a391e652641814aa700d3d3c095ceb,
-        type: 3}
-      propertyPath: m_TargetTexture
-      value: 
-      objectReference: {fileID: 8400000, guid: 06e8b4b56d7a3b44096233ed599a28c1, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09a391e652641814aa700d3d3c095ceb, type: 3}
 --- !u!1001 &6348532137572285396
