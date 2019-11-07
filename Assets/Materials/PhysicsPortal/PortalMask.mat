@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: PhysicsPortal 2
+  m_Name: PortalMask
   m_Shader: {fileID: 4800000, guid: 4455006cccdabdd4fb2ef4d2c6b3ea49, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -63,7 +63,7 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _MaskID: 2
+    - _MaskID: 1
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1

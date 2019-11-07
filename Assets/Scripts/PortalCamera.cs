@@ -18,6 +18,8 @@ public class PortalCamera : MonoBehaviour
 
     private Camera mainCamera;
 
+    private const int maskID1 = 1;
+    private const int maskID2 = 2;
     private const int iterations = 2;
 
     private void Awake()
@@ -25,11 +27,14 @@ public class PortalCamera : MonoBehaviour
         mainCamera = GetComponent<Camera>();
     }
 
+    private void Start()
+    {
+        portals[0].SetMaskID(maskID1);
+        portals[1].SetMaskID(maskID2);
+    }
+
     private void OnRenderImage(RenderTexture src, RenderTexture dst)
     {
-        int maskID1 = 1;
-        int maskID2 = 2;
-
         portals[0].SetMaskID(maskID1);
         portals[1].SetMaskID(maskID2);
 
