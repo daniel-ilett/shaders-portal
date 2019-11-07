@@ -29,7 +29,7 @@ public class Portal : MonoBehaviour
 
         collider.size = size;
 
-        transform.position -= transform.forward * 0.0001f;
+        transform.position -= transform.forward * 0.01f;
     }
 
     private void Update()

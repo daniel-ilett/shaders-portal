@@ -19,12 +19,15 @@ public class PortalCamera : MonoBehaviour
 
     private const int maskID1 = 1;
     private const int maskID2 = 2;
-    private const int iterations = 2;
+    private const int iterations = 5;
 
     private void Awake()
     {
         mainCamera = GetComponent<Camera>();
         tempTexture = new RenderTexture(Screen.width, Screen.height, 24);
+
+        portalCameras[0].targetTexture = tempTexture;
+        portalCameras[1].targetTexture = tempTexture;
     }
 
     private void Start()
@@ -35,33 +38,21 @@ public class PortalCamera : MonoBehaviour
 
     private void OnRenderImage(RenderTexture src, RenderTexture dst)
     {
-        portals[0].SetMaskID(maskID1);
-        portals[1].SetMaskID(maskID2);
+        // Render the first portal output onto the image.
+        RenderCamera(portals[0], portals[1], portalCameras[0]);
+        portalMaterial.SetInt("_MaskID", maskID1);
+        Graphics.Blit(tempTexture, src, portalMaterial);
 
-        for (int i = 0; i < iterations; ++i)
-        {
-            portals[0].SetMaskID(maskID2);
-            RenderCamera(portals[0], portals[1], portalCameras[0], tempTexture);
+        // Render the second portal output onto the image.
+        RenderCamera(portals[1], portals[0], portalCameras[1]);
+        portalMaterial.SetInt("_MaskID", maskID2);
+        Graphics.Blit(tempTexture, src, portalMaterial);
 
-            // Render the first portal output onto the image.
-            portalMaterial.SetInt("_MaskID", maskID1);
-            Graphics.Blit(tempTexture, src, portalMaterial);
-
-            portals[1].SetMaskID(maskID1);
-            RenderCamera(portals[1], portals[0], portalCameras[1], tempTexture);
-
-            // Render the second portal output onto the image.
-            portalMaterial.SetInt("_MaskID", maskID2);
-            Graphics.Blit(tempTexture, src, portalMaterial);
-        }
-
-        portals[0].SetMaskID(maskID1);
-        portals[1].SetMaskID(maskID2);
-
+        // Output the combined texture.
         Graphics.Blit(src, dst);
     }
 
-    private void RenderCamera(Portal inPortal, Portal outPortal, Camera renderCamera, RenderTexture target)
+    private void RenderCamera(Portal inPortal, Portal outPortal, Camera renderCamera)
     {
         Transform inTransform = inPortal.transform;
         Transform outTransform = outPortal.transform;
@@ -80,10 +71,7 @@ public class PortalCamera : MonoBehaviour
         Vector3 newForwardDir = outTransform.TransformDirection(relativeForwardDir);
 
         Quaternion newLookRotation = Quaternion.LookRotation(newForwardDir, newUpDir);
-        //Quaternion rotation = Quaternion.AngleAxis(180.0f, newUpDir);
-
         renderCamera.transform.localRotation = Quaternion.Euler(0, 180, 0) * newLookRotation;
-        //renderCamera.transform.localRotation = rotation * newLookRotation;
 
         // Set the camera's oblique view frustum.
         Plane p = new Plane(-outTransform.forward, outTransform.position);
@@ -95,7 +83,6 @@ public class PortalCamera : MonoBehaviour
         renderCamera.projectionMatrix = newMatrix;
 
         // Render the camera to its render target.
-        renderCamera.targetTexture = target;
         renderCamera.Render();
     }
 }
