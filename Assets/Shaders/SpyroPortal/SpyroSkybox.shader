@@ -7,7 +7,11 @@
     }
     SubShader
     {
-        Tags { "RenderType"="Opaque" }
+        Tags 
+		{ 
+			"RenderType" = "Opaque" 
+			"Queue" = "Geometry+1"
+		}
         LOD 200
 
 		Cull Off
@@ -36,9 +40,9 @@
 
         void surf (Input IN, inout SurfaceOutput o)
         {
-            fixed4 col = texCUBE(_WorldCube, IN.viewDir) * _Color;
-			o.Albedo = col.rgb;
-            o.Alpha = col.a;
+			fixed4 col = texCUBE(_WorldCube, IN.viewDir) * _Color;
+			o.Albedo = col.xyz;
+            o.Alpha = 1.0f;
         }
         ENDCG
     }
