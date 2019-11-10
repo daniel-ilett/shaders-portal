@@ -107,8 +107,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   portalMaterials:
-  - {fileID: 2100000, guid: a489a289a8f477a43afb3911e7076476, type: 2}
   - {fileID: 2100000, guid: a7802d2f1dcc85644b77ec30c383a444, type: 2}
+  - {fileID: 2100000, guid: a489a289a8f477a43afb3911e7076476, type: 2}
 --- !u!1 &686723569547127804
 GameObject:
   m_ObjectHideFlags: 0

@@ -41,6 +41,7 @@ public class SpyroPortal : MonoBehaviour
     // Then swap array entries ready for next time.
     private void EnterPortal()
     {
+        Debug.Log("Entered Portal " + Time.time);
         var oldMaterial = portalMaterials[0];
         var newMaterial = portalMaterials[1];
 
@@ -57,6 +58,7 @@ public class SpyroPortal : MonoBehaviour
         if(other.tag == "Player")
         {
             isInPortal = true;
+            lastPlayerPos = transform.InverseTransformPoint(player.position);
         }
     }
 
