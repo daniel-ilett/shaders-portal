@@ -50,6 +50,11 @@ public class Portal : MonoBehaviour
         material.SetInt("_MaskID", id);
     }
 
+    public void SetTexture(RenderTexture tex)
+    {
+        material.mainTexture = tex;
+    }
+
     private void Warp(Rigidbody warpObj)
     {
         Vector3 pos = transform.InverseTransformPoint(warpObj.position);

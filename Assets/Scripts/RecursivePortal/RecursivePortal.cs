@@ -10,47 +10,46 @@ public class RecursivePortal : MonoBehaviour
     [SerializeField]
     private Camera[] portalCameras = new Camera[2];
 
-    [SerializeField]
-    private Material portalMaterial;
+    private RenderTexture tempTexture1;
+    private RenderTexture tempTexture2;
 
-    private RenderTexture tempTexture;
+    private RenderTexture tempTexture3;
+    private RenderTexture tempTexture4;
 
     private Camera mainCamera;
 
-    private const int maskID1 = 1;
-    private const int maskID2 = 2;
+    int a = 0;
+    
     private const int iterations = 5;
 
     private void Awake()
     {
         mainCamera = GetComponent<Camera>();
-        tempTexture = new RenderTexture(Screen.width, Screen.height, 24);
+        tempTexture1 = new RenderTexture(Screen.width, Screen.height, 24);
+        tempTexture2 = new RenderTexture(Screen.width, Screen.height, 24);
+        tempTexture3 = new RenderTexture(Screen.width, Screen.height, 24);
+        tempTexture4 = new RenderTexture(Screen.width, Screen.height, 24);
 
-        portalCameras[0].targetTexture = tempTexture;
-        portalCameras[1].targetTexture = tempTexture;
+        portalCameras[0].targetTexture = tempTexture1;
+        portalCameras[1].targetTexture = tempTexture2;
     }
 
     private void Start()
     {
-        portals[0].SetMaskID(maskID1);
-        portals[1].SetMaskID(maskID2);
+        portals[0].SetTexture(tempTexture3);
+        portals[1].SetTexture(tempTexture4);
     }
 
-    private void OnRenderImage(RenderTexture src, RenderTexture dst)
+    private void OnPreRender()
     {
-        for(int i = 0; i < iterations; ++i)
+        for (int i = 0; i < iterations; ++i)
         {
-            // Render the first portal output onto the image.
             RenderCamera(portals[0], portals[1], portalCameras[0]);
-            portalMaterial.SetInt("_MaskID", maskID1);
-
-            // Render the second portal output onto the image.
             RenderCamera(portals[1], portals[0], portalCameras[1]);
-            portalMaterial.SetInt("_MaskID", maskID2);
-        }
 
-        // Output the combined texture.
-        Graphics.Blit(src, dst);
+            Graphics.Blit(tempTexture1, tempTexture3);
+            Graphics.Blit(tempTexture2, tempTexture4);
+        }
     }
 
     private void RenderCamera(Portal inPortal, Portal outPortal, Camera renderCamera)
