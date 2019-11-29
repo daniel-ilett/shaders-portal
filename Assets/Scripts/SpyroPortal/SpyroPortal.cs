@@ -18,7 +18,6 @@ public class SpyroPortal : MonoBehaviour
     private void Awake()
     {
         renderer = GetComponent<MeshRenderer>();
-        lastPlayerPos = transform.InverseTransformPoint(player.position);
     }
 
     // If the player is in the portal, see if we've crossed the boundary.
