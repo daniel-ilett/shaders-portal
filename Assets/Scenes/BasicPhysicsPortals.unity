@@ -377,11 +377,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1981272916595916677, guid: 09a391e652641814aa700d3d3c095ceb,
-        type: 3}
-      propertyPath: wallCollider
-      value: 
-      objectReference: {fileID: 669220522}
     - target: {fileID: 2817211885609150777, guid: 09a391e652641814aa700d3d3c095ceb,
         type: 3}
       propertyPath: portals.Array.data[0]
@@ -392,6 +387,20 @@ PrefabInstance:
       propertyPath: portals.Array.data[1]
       value: 
       objectReference: {fileID: 1271385945}
+    - target: {fileID: 3869327200655888824, guid: 09a391e652641814aa700d3d3c095ceb,
+        type: 3}
+      propertyPath: m_TargetTexture
+      value: 
+      objectReference: {fileID: 8400000, guid: 36648411915728943af9e2b65b5b995d, type: 2}
+    - target: {fileID: 3869327201949883064, guid: 09a391e652641814aa700d3d3c095ceb,
+        type: 3}
+      propertyPath: m_TargetTexture
+      value: 
+      objectReference: {fileID: 8400000, guid: 33c52dfcad50dca46b8fe43e6ca17875, type: 2}
+    - target: {fileID: 124133510, guid: 09a391e652641814aa700d3d3c095ceb, type: 3}
+      propertyPath: wallCollider
+      value: 
+      objectReference: {fileID: 669220522}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09a391e652641814aa700d3d3c095ceb, type: 3}
 --- !u!1001 &6348532137572285396
