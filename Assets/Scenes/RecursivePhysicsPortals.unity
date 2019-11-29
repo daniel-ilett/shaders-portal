@@ -278,21 +278,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8022558806893694097, guid: be1c87aa377705f4c9524abc73bed8e4,
-        type: 3}
-      propertyPath: wallCollider
-      value: 
-      objectReference: {fileID: 669220522}
-    - target: {fileID: 4726988590406460076, guid: be1c87aa377705f4c9524abc73bed8e4,
-        type: 3}
-      propertyPath: m_ClearFlags
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4726988591297931692, guid: be1c87aa377705f4c9524abc73bed8e4,
-        type: 3}
-      propertyPath: m_ClearFlags
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 460669233, guid: be1c87aa377705f4c9524abc73bed8e4, type: 3}
       propertyPath: portals.Array.data[0]
       value: 
@@ -301,6 +286,10 @@ PrefabInstance:
       propertyPath: portals.Array.data[1]
       value: 
       objectReference: {fileID: 3643344765294230057}
+    - target: {fileID: 681960811, guid: be1c87aa377705f4c9524abc73bed8e4, type: 3}
+      propertyPath: wallCollider
+      value: 
+      objectReference: {fileID: 669220522}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be1c87aa377705f4c9524abc73bed8e4, type: 3}
 --- !u!64 &669220522 stripped
