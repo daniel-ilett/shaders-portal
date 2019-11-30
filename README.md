@@ -7,6 +7,8 @@ This project is all about portals. Stepping outside of pure shader work and into
 
 This project goes in-depth with: **cubemaps**, **stencil buffers**, **oblique near-plane projection**, **linear algebra and spaces**, **rigidbodies and collision**.
 
+<a href='https://ko-fi.com/M4M2190VC' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://az743702.vo.msecnd.net/cdn/kofi1.png?v=2' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
+
 ### Shaders Included
 
 This project includes shaders for:
