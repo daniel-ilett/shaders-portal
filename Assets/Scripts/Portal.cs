@@ -22,12 +22,8 @@ public class Portal : MonoBehaviour
     private void Start()
     {
         var diameter = PlayerController.instance.GetColliderRadius() * 3.0f;
-
-        var transformScale = transform.localScale;
-        var size = new Vector3(1.01f - diameter / transformScale.x, 
-            1.01f - diameter / transform.localScale.y, collider.size.z);
-
-        collider.size = size;
+        collider.size = new Vector3(collider.size.x - diameter,
+            collider.size.y - diameter, collider.size.z);
 
         transform.position -= transform.forward * 0.01f;
     }
