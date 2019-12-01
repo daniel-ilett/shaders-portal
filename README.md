@@ -5,7 +5,7 @@ A showcase of shader effects to replicate portals in videogames.
 
 This project is all about portals. Stepping outside of pure shader work and into the world of C# scripting, this series goes a lot more in-depth with the link between scripting and shaders than my previous work, highlighting the importance of making both sides work together.
 
-This project goes in-depth with: **cubemaps**, **stencil buffers**, **oblique near-plane projection**, **linear algebra and spaces**, **rigidbodies and collision**.
+This project goes in-depth with: **cubemaps**, **stencil buffers**, **oblique near-plane projection**, **linear algebra and local/world space transformations**, **screenspace texture sampling**, **raycasting**, **rigidbodies and collision**.
 
 <a href='https://ko-fi.com/M4M2190VC' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://az743702.vo.msecnd.net/cdn/kofi1.png?v=2' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
 
