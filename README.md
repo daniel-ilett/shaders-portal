@@ -3,7 +3,7 @@ A showcase of shader effects to replicate portals in videogames.
 
 ## Overview
 
-This project is all about portals. Stepping outside of pure shader work and into the world of C# scripting, this series goes a lot more in-depth with the link between scripting and shaders than my existing series have so far, highlighting the importance of making both sides work together.
+This project is all about portals. Stepping outside of pure shader work and into the world of C# scripting, this series goes a lot more in-depth with the link between scripting and shaders than my previous work, highlighting the importance of making both sides work together.
 
 This project goes in-depth with: **cubemaps**, **stencil buffers**, **oblique near-plane projection**, **linear algebra and spaces**, **rigidbodies and collision**.
 
@@ -13,7 +13,8 @@ This project goes in-depth with: **cubemaps**, **stencil buffers**, **oblique ne
 
 This project includes shaders for:
 - A *Spyro*-style portal effect including a cubemap-based rendering of the world on the other side of the portal;
-- A *Portal*-style placeable portal that renders the view through the other portal in realtime using the stencil buffer, an oblique projection matrix, and smart camera placement.
+- A *Manifold Garden*-style placeable portal that renders a non-recursive view through the other portal in realtime using the stencil buffer, an oblique projection matrix and smart camera placement;
+- A *Portal*-style portal that builds on the previous version, adding recursion and using screenspace texture sampling instead of the stencil buffer.
 
 ## Software
 
@@ -30,7 +31,7 @@ This project uses the following assets:
 
 ## Release
 
-These shaders are currently in development.
+The series was announced on December 1st on [danielilett.com](https://danielilett.com/2019-12-01-tut4-intro-portals/). The series will be developed and articles made public throughout December 2019.
 
 Thank you for following my tutorials.
 
