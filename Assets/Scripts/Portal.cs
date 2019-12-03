@@ -25,7 +25,7 @@ public class Portal : MonoBehaviour
         collider.size = new Vector3(collider.size.x - diameter,
             collider.size.y - diameter, collider.size.z);
 
-        transform.position -= transform.forward * 0.01f;
+        PlacePortal(transform.position, transform.forward, transform.up);
     }
 
     private void Update()
@@ -98,5 +98,12 @@ public class Portal : MonoBehaviour
                 player.ChangePortalTriggerCount(-1);
             }
         }
+    }
+
+    private void PlacePortal(Vector3 pos, Vector3 hitNormal, Vector3 up)
+    {
+        transform.position = pos;
+        transform.rotation = Quaternion.LookRotation(hitNormal, up);
+        transform.position -= transform.forward * 0.01f;
     }
 }
