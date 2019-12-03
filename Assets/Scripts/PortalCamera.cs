@@ -11,7 +11,7 @@ public class PortalCamera : MonoBehaviour
         mainCamera = GetComponent<Camera>();
     }
 
-    protected void RenderCamera(Portal inPortal, Portal outPortal, Camera renderCamera, int iterationID)
+    protected void RenderCamera(Portal inPortal, Portal outPortal, Camera renderCamera)
     {
         Transform inTransform = inPortal.transform;
         Transform outTransform = outPortal.transform;
@@ -20,8 +20,7 @@ public class PortalCamera : MonoBehaviour
         Vector3 relativePos = inTransform.InverseTransformPoint(transform.position);
         relativePos.x *= -1;
         relativePos.z *= -1;
-        var targetPosition = outTransform.TransformPoint(relativePos);
-        renderCamera.transform.position = targetPosition + (targetPosition - mainCamera.transform.position) * iterationID;
+        renderCamera.transform.position = outTransform.TransformPoint(relativePos);
 
         // Rotate the camera to look through the other portal.
         Vector3 relativeUpDir = inTransform.InverseTransformDirection(transform.up);
