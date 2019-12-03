@@ -104,6 +104,6 @@ public class Portal : MonoBehaviour
     {
         transform.position = pos;
         transform.rotation = Quaternion.LookRotation(hitNormal, up);
-        transform.position -= transform.forward * 0.0001f;
+        transform.position -= transform.forward * 0.001f;
     }
 }

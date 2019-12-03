@@ -36,12 +36,12 @@ public class BasicPortalCamera : PortalCamera
     private void OnRenderImage(RenderTexture src, RenderTexture dst)
     {
         // Render the first portal output onto the image.
-        RenderCamera(portals[0], portals[1], portalCameras[0]);
+        RenderCamera(portals[0], portals[1], portalCameras[0], 0);
         portalMaterial.SetInt("_MaskID", maskID1);
         Graphics.Blit(tempTexture, src, portalMaterial);
 
         // Render the second portal output onto the image.
-        RenderCamera(portals[1], portals[0], portalCameras[1]);
+        RenderCamera(portals[1], portals[0], portalCameras[1], 0);
         portalMaterial.SetInt("_MaskID", maskID2);
         Graphics.Blit(tempTexture, src, portalMaterial);
 

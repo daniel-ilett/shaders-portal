@@ -62,7 +62,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 1591
+    m_Bits: 4294967295
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -182,6 +182,12 @@ MonoBehaviour:
   portalCameras:
   - {fileID: 4726988590406460076}
   - {fileID: 4726988591297931692}
+  tempTextures:
+  - {fileID: 8400000, guid: eaf06c26ab69e814daecfba232735ed2, type: 2}
+  - {fileID: 8400000, guid: c11dd7ec148c105499463af78d15dffd, type: 2}
+  - {fileID: 8400000, guid: e65c2e3af448e69479048dad50d103bb, type: 2}
+  - {fileID: 8400000, guid: cc76e258aa7e9f944a481382ef135fe5, type: 2}
+  - {fileID: 8400000, guid: 5ca7ded1cf238cb4c84a4ddf3aefc30b, type: 2}
 --- !u!54 &681960814
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -344,7 +350,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 1591
+    m_Bits: 4294967295
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0

@@ -12,20 +12,15 @@ public class RecursivePortalCamera : PortalCamera
 
     private RenderTexture tempTexture1;
     private RenderTexture tempTexture2;
-
-    private RenderTexture tempTexture3;
-    private RenderTexture tempTexture4;
     
-    private const int iterations = 1;
+    private const int iterations = 7;
 
     private new void Awake()
     {
         base.Awake();
 
-        tempTexture1 = new RenderTexture(Screen.width, Screen.height, 24);
-        tempTexture2 = new RenderTexture(Screen.width, Screen.height, 24);
-        tempTexture3 = new RenderTexture(Screen.width, Screen.height, 24);
-        tempTexture4 = new RenderTexture(Screen.width, Screen.height, 24);
+        tempTexture1 = new RenderTexture(Screen.width, Screen.height, 24, RenderTextureFormat.ARGB32);
+        tempTexture2 = new RenderTexture(Screen.width, Screen.height, 24, RenderTextureFormat.ARGB32);
 
         portalCameras[0].targetTexture = tempTexture1;
         portalCameras[1].targetTexture = tempTexture2;
@@ -33,19 +28,16 @@ public class RecursivePortalCamera : PortalCamera
 
     private void Start()
     {
-        portals[0].SetTexture(tempTexture3);
-        portals[1].SetTexture(tempTexture4);
+        portals[0].SetTexture(tempTexture1);
+        portals[1].SetTexture(tempTexture2);
     }
 
     private void OnPreRender()
     {
-        for (int i = 0; i < iterations; ++i)
+        for (int i = 1; i <= iterations; ++i)
         {
-            RenderCamera(portals[0], portals[1], portalCameras[0]);
-            RenderCamera(portals[1], portals[0], portalCameras[1]);
-
-            Graphics.Blit(tempTexture1, tempTexture3);
-            Graphics.Blit(tempTexture2, tempTexture4);
+            RenderCamera(portals[0], portals[1], portalCameras[0], iterations - i);
+            RenderCamera(portals[1], portals[0], portalCameras[1], iterations - i);
         }
     }
 }

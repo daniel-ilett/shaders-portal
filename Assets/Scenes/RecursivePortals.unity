@@ -236,7 +236,7 @@ PrefabInstance:
     - target: {fileID: 4726988592218370041, guid: be1c87aa377705f4c9524abc73bed8e4,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 9.33
+      value: 6.33
       objectReference: {fileID: 0}
     - target: {fileID: 4726988592218370041, guid: be1c87aa377705f4c9524abc73bed8e4,
         type: 3}
@@ -277,6 +277,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726988590406460076, guid: be1c87aa377705f4c9524abc73bed8e4,
+        type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 1591
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726988591297931692, guid: be1c87aa377705f4c9524abc73bed8e4,
+        type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 1591
       objectReference: {fileID: 0}
     - target: {fileID: 460669233, guid: be1c87aa377705f4c9524abc73bed8e4, type: 3}
       propertyPath: portals.Array.data[0]
@@ -458,6 +468,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8708287374288484307, guid: d66234c2b7828044d947dec754266dd0,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8708287374288484307, guid: d66234c2b7828044d947dec754266dd0,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8708287374288484307, guid: d66234c2b7828044d947dec754266dd0,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8708287373399788274, guid: d66234c2b7828044d947dec754266dd0,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e13c8c2f267c67d4f9ae9263957c009b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d66234c2b7828044d947dec754266dd0, type: 3}
 --- !u!1001 &7345778040936857885

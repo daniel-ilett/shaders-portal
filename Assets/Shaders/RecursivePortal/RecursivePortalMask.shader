@@ -8,8 +8,7 @@
     {
 		Tags 
 		{ 
-			"RenderType" = "Opaque" 
-			"Queue" = "Geometry-1"
+			"RenderType" = "Opaque"
 		}
 
         Pass
@@ -19,6 +18,7 @@
 				Ref 1
 				Pass replace
 			}
+
 			CGPROGRAM
 				#pragma vertex vert
 				#pragma fragment frag
