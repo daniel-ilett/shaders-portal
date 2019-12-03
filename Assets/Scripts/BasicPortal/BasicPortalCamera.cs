@@ -20,7 +20,7 @@ public class BasicPortalCamera : MonoBehaviour
     private const int maskID1 = 1;
     private const int maskID2 = 2;
 
-    private new void Awake()
+    private void Awake()
     {
         mainCamera = GetComponent<Camera>();
         tempTexture = new RenderTexture(Screen.width, Screen.height, 24);
@@ -37,15 +37,18 @@ public class BasicPortalCamera : MonoBehaviour
 
     private void OnRenderImage(RenderTexture src, RenderTexture dst)
     {
-        // Render the first portal output onto the image.
-        RenderCamera(portals[0], portals[1], portalCameras[0]);
-        portalMaterial.SetInt("_MaskID", maskID1);
-        Graphics.Blit(tempTexture, src, portalMaterial);
+        if (portals[0].IsRendererVisible() || portals[1].IsRendererVisible())
+        {
+            // Render the first portal output onto the image.
+            RenderCamera(portals[0], portals[1], portalCameras[0]);
+            portalMaterial.SetInt("_MaskID", maskID1);
+            Graphics.Blit(tempTexture, src, portalMaterial);
 
-        // Render the second portal output onto the image.
-        RenderCamera(portals[1], portals[0], portalCameras[1]);
-        portalMaterial.SetInt("_MaskID", maskID2);
-        Graphics.Blit(tempTexture, src, portalMaterial);
+            // Render the second portal output onto the image.
+            RenderCamera(portals[1], portals[0], portalCameras[1]);
+            portalMaterial.SetInt("_MaskID", maskID2);
+            Graphics.Blit(tempTexture, src, portalMaterial);
+        }
 
         // Output the combined texture.
         Graphics.Blit(src, dst);

@@ -11,11 +11,13 @@ public class Portal : MonoBehaviour
     private List<Rigidbody> rigidbodies = new List<Rigidbody>();
 
     private Material material;
+    private new Renderer renderer;
     private new BoxCollider collider;
 
     private void Awake()
     {
         collider = GetComponent<BoxCollider>();
+        renderer = GetComponent<Renderer>();
         material = GetComponent<Renderer>().material;
     }
 
@@ -49,6 +51,11 @@ public class Portal : MonoBehaviour
     public void SetTexture(RenderTexture tex)
     {
         material.mainTexture = tex;
+    }
+
+    public bool IsRendererVisible()
+    {
+        return renderer.isVisible;
     }
 
     private void Warp(Rigidbody warpObj)

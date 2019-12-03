@@ -15,9 +15,9 @@ public class RecursivePortalCamera : MonoBehaviour
 
     private Camera mainCamera;
 
-    private const int iterations = 7;
+    private const int iterations = 10;
 
-    private new void Awake()
+    private void Awake()
     {
         mainCamera = GetComponent<Camera>();
 
@@ -36,10 +36,13 @@ public class RecursivePortalCamera : MonoBehaviour
 
     private void OnPreRender()
     {
-        for (int i = 1; i <= iterations; ++i)
+        if(portals[0].IsRendererVisible() || portals[1].IsRendererVisible())
         {
-            RenderCamera(portals[0], portals[1], portalCameras[0], iterations - i);
-            RenderCamera(portals[1], portals[0], portalCameras[1], iterations - i);
+            for (int i = 1; i <= iterations; ++i)
+            {
+                RenderCamera(portals[0], portals[1], portalCameras[0], iterations - i);
+                RenderCamera(portals[1], portals[0], portalCameras[1], iterations - i);
+            }
         }
     }
 
