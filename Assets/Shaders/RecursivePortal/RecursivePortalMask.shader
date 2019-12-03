@@ -10,6 +10,11 @@
 
         Pass
         {
+			Stencil
+			{
+				Ref 1
+				Pass replace
+			}
 			CGPROGRAM
 				#pragma vertex vert
 				#pragma fragment frag
