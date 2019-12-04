@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour
     {
         portalTriggerCount += delta;
 
-        Physics.IgnoreCollision(collider, wallCollider, (portalTriggerCount > 0));
+        //Physics.IgnoreCollision(collider, wallCollider, (portalTriggerCount > 0));
+        Physics.IgnoreLayerCollision(8, 9, (portalTriggerCount > 0));
     }
 }
