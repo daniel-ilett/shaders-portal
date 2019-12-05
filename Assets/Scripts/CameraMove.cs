@@ -10,6 +10,7 @@ public class CameraMove : MonoBehaviour
 
     private Vector2 rotation = Vector2.zero;
     private Vector3 moveVector = Vector3.zero;
+    private float moveY = 0.0f;
 
     private new Rigidbody rigidbody;
 
@@ -27,15 +28,16 @@ public class CameraMove : MonoBehaviour
 
         // Move the camera.
         float x = Input.GetAxis("Horizontal");
-        float y = Input.GetAxis("Elevation");
         float z = Input.GetAxis("Vertical");
+        moveVector = new Vector3(x, 0.0f, z) * moveSpeed;
 
-        moveVector = new Vector3(x, y, z) * moveSpeed;
+        moveY = Input.GetAxis("Elevation");
     }
 
     private void FixedUpdate()
     {
-        rigidbody.velocity = transform.TransformDirection(moveVector);
-
+        Vector3 newVelocity = transform.TransformDirection(moveVector);
+        newVelocity.y += moveY * moveSpeed;
+        rigidbody.velocity = newVelocity;
     }
 }
