@@ -36,18 +36,18 @@ public class RecursivePortalCamera : MonoBehaviour
         if(portals[0].IsRendererVisible())
         {
             portalCamera.targetTexture = tempTexture1;
-            for (int i = 1; i <= iterations; ++i)
+            for (int i = iterations - 1; i >= 0; --i)
             {
-                RenderCamera(portals[0], portals[1], iterations - i);
+                RenderCamera(portals[0], portals[1], i);
             }
         }
 
         if(portals[1].IsRendererVisible())
         {
             portalCamera.targetTexture = tempTexture2;
-            for (int i = 1; i <= iterations; ++i)
+            for (int i = iterations - 1; i >= 0; --i)
             {
-                RenderCamera(portals[1], portals[0], iterations - i);
+                RenderCamera(portals[1], portals[0], i);
             }
         }
     }
@@ -65,19 +65,13 @@ public class RecursivePortalCamera : MonoBehaviour
         {
             // Position the camera behind the other portal.
             Vector3 relativePos = inTransform.InverseTransformPoint(cameraTransform.position);
-            relativePos.x *= -1;
-            relativePos.z *= -1;
+            relativePos = Quaternion.Euler(0.0f, 180.0f, 0.0f) * relativePos;
             cameraTransform.position = outTransform.TransformPoint(relativePos);
 
             // Rotate the camera to look through the other portal.
-            Vector3 relativeUpDir = inTransform.InverseTransformDirection(cameraTransform.up);
-            Vector3 relativeForwardDir = inTransform.InverseTransformDirection(cameraTransform.forward);
-
-            Vector3 newUpDir = outTransform.TransformDirection(relativeUpDir);
-            Vector3 newForwardDir = outTransform.TransformDirection(relativeForwardDir);
-
-            Quaternion newLookRotation = Quaternion.LookRotation(newForwardDir, newUpDir);
-            cameraTransform.localRotation = Quaternion.Euler(0, 180, 0) * newLookRotation;
+            Quaternion relativeRot = Quaternion.Inverse(inTransform.rotation) * cameraTransform.rotation;
+            relativeRot = Quaternion.Euler(0.0f, 180.0f, 0.0f) * relativeRot;
+            cameraTransform.rotation = outTransform.rotation * relativeRot;
         }
 
         // Set the camera's oblique view frustum.
