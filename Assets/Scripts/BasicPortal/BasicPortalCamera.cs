@@ -36,13 +36,16 @@ public class BasicPortalCamera : MonoBehaviour
 
     private void OnRenderImage(RenderTexture src, RenderTexture dst)
     {
-        if (portals[0].IsRendererVisible() || portals[1].IsRendererVisible())
+        if(portals[0].IsRendererVisible())
         {
             // Render the first portal output onto the image.
             RenderCamera(portals[0], portals[1]);
             portalMaterial.SetInt("_MaskID", maskID1);
             Graphics.Blit(tempTexture, src, portalMaterial);
+        }
 
+        if(portals[1].IsRendererVisible())
+        {
             // Render the second portal output onto the image.
             RenderCamera(portals[1], portals[0]);
             portalMaterial.SetInt("_MaskID", maskID2);
