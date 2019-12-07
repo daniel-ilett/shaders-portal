@@ -60,19 +60,13 @@ public class BasicPortalCamera : MonoBehaviour
 
         // Position the camera behind the other portal.
         Vector3 relativePos = inTransform.InverseTransformPoint(transform.position);
-        relativePos.x *= -1;
-        relativePos.z *= -1;
+        relativePos = Quaternion.Euler(0.0f, 180.0f, 0.0f) * relativePos;
         portalCamera.transform.position = outTransform.TransformPoint(relativePos);
 
         // Rotate the camera to look through the other portal.
-        Vector3 relativeUpDir = inTransform.InverseTransformDirection(transform.up);
-        Vector3 relativeForwardDir = inTransform.InverseTransformDirection(transform.forward);
-
-        Vector3 newUpDir = outTransform.TransformDirection(relativeUpDir);
-        Vector3 newForwardDir = outTransform.TransformDirection(relativeForwardDir);
-
-        Quaternion newLookRotation = Quaternion.LookRotation(newForwardDir, newUpDir);
-        portalCamera.transform.localRotation = Quaternion.Euler(0, 180, 0) * newLookRotation;
+        Quaternion relativeRot = Quaternion.Inverse(inTransform.rotation) * transform.rotation;
+        relativeRot = Quaternion.Euler(0.0f, 180.0f, 0.0f) * relativeRot;
+        portalCamera.transform.rotation = outTransform.rotation * relativeRot;
 
         // Set the camera's oblique view frustum.
         Plane p = new Plane(-outTransform.forward, outTransform.position);
