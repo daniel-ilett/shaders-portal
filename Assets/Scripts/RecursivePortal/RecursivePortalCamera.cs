@@ -8,7 +8,7 @@ public class RecursivePortalCamera : MonoBehaviour
     private Portal[] portals = new Portal[2];
 
     [SerializeField]
-    private Camera[] portalCameras = new Camera[2];
+    private Camera portalCamera;
 
     private RenderTexture tempTexture1;
     private RenderTexture tempTexture2;
@@ -23,9 +23,6 @@ public class RecursivePortalCamera : MonoBehaviour
 
         tempTexture1 = new RenderTexture(Screen.width, Screen.height, 24, RenderTextureFormat.ARGB32);
         tempTexture2 = new RenderTexture(Screen.width, Screen.height, 24, RenderTextureFormat.ARGB32);
-
-        portalCameras[0].targetTexture = tempTexture1;
-        portalCameras[1].targetTexture = tempTexture2;
     }
 
     private void Start()
@@ -36,22 +33,31 @@ public class RecursivePortalCamera : MonoBehaviour
 
     private void OnPreRender()
     {
-        if(portals[0].IsRendererVisible() || portals[1].IsRendererVisible())
+        if(portals[0].IsRendererVisible())
         {
+            portalCamera.targetTexture = tempTexture1;
             for (int i = 1; i <= iterations; ++i)
             {
-                RenderCamera(portals[0], portals[1], portalCameras[0], iterations - i);
-                RenderCamera(portals[1], portals[0], portalCameras[1], iterations - i);
+                RenderCamera(portals[0], portals[1], iterations - i);
+            }
+        }
+
+        if(portals[1].IsRendererVisible())
+        {
+            portalCamera.targetTexture = tempTexture2;
+            for (int i = 1; i <= iterations; ++i)
+            {
+                RenderCamera(portals[1], portals[0], iterations - i);
             }
         }
     }
 
-    private void RenderCamera(Portal inPortal, Portal outPortal, Camera renderCamera, int iterationID)
+    private void RenderCamera(Portal inPortal, Portal outPortal, int iterationID)
     {
         Transform inTransform = inPortal.transform;
         Transform outTransform = outPortal.transform;
 
-        Transform cameraTransform = renderCamera.transform;
+        Transform cameraTransform = portalCamera.transform;
         cameraTransform.position = transform.position;
         cameraTransform.rotation = transform.rotation;
 
@@ -78,12 +84,12 @@ public class RecursivePortalCamera : MonoBehaviour
         Plane p = new Plane(-outTransform.forward, outTransform.position);
         Vector4 clipPlane = new Vector4(p.normal.x, p.normal.y, p.normal.z, p.distance);
         Vector4 clipPlaneCameraSpace =
-            Matrix4x4.Transpose(Matrix4x4.Inverse(renderCamera.worldToCameraMatrix)) * clipPlane;
+            Matrix4x4.Transpose(Matrix4x4.Inverse(portalCamera.worldToCameraMatrix)) * clipPlane;
 
         var newMatrix = mainCamera.CalculateObliqueMatrix(clipPlaneCameraSpace);
-        renderCamera.projectionMatrix = newMatrix;
+        portalCamera.projectionMatrix = newMatrix;
 
         // Render the camera to its render target.
-        renderCamera.Render();
+        portalCamera.Render();
     }
 }
