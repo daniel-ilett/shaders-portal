@@ -15,7 +15,7 @@ public class RecursivePortalCamera : MonoBehaviour
 
     private Camera mainCamera;
 
-    private const int iterations = 10;
+    private const int iterations = 7;
 
     private void Awake()
     {

@@ -8,7 +8,7 @@ public class BasicPortalCamera : MonoBehaviour
     private Portal[] portals = new Portal[2];
 
     [SerializeField]
-    private Camera[] portalCameras = new Camera[2];
+    private Camera portalCamera;
 
     [SerializeField]
     private Material portalMaterial;
@@ -25,8 +25,7 @@ public class BasicPortalCamera : MonoBehaviour
         mainCamera = GetComponent<Camera>();
         tempTexture = new RenderTexture(Screen.width, Screen.height, 24);
 
-        portalCameras[0].targetTexture = tempTexture;
-        portalCameras[1].targetTexture = tempTexture;
+        portalCamera.targetTexture = tempTexture;
     }
 
     private void Start()
@@ -40,12 +39,12 @@ public class BasicPortalCamera : MonoBehaviour
         if (portals[0].IsRendererVisible() || portals[1].IsRendererVisible())
         {
             // Render the first portal output onto the image.
-            RenderCamera(portals[0], portals[1], portalCameras[0]);
+            RenderCamera(portals[0], portals[1]);
             portalMaterial.SetInt("_MaskID", maskID1);
             Graphics.Blit(tempTexture, src, portalMaterial);
 
             // Render the second portal output onto the image.
-            RenderCamera(portals[1], portals[0], portalCameras[1]);
+            RenderCamera(portals[1], portals[0]);
             portalMaterial.SetInt("_MaskID", maskID2);
             Graphics.Blit(tempTexture, src, portalMaterial);
         }
@@ -54,7 +53,7 @@ public class BasicPortalCamera : MonoBehaviour
         Graphics.Blit(src, dst);
     }
 
-    private void RenderCamera(Portal inPortal, Portal outPortal, Camera renderCamera)
+    private void RenderCamera(Portal inPortal, Portal outPortal)
     {
         Transform inTransform = inPortal.transform;
         Transform outTransform = outPortal.transform;
@@ -63,7 +62,7 @@ public class BasicPortalCamera : MonoBehaviour
         Vector3 relativePos = inTransform.InverseTransformPoint(transform.position);
         relativePos.x *= -1;
         relativePos.z *= -1;
-        renderCamera.transform.position = outTransform.TransformPoint(relativePos);
+        portalCamera.transform.position = outTransform.TransformPoint(relativePos);
 
         // Rotate the camera to look through the other portal.
         Vector3 relativeUpDir = inTransform.InverseTransformDirection(transform.up);
@@ -73,18 +72,18 @@ public class BasicPortalCamera : MonoBehaviour
         Vector3 newForwardDir = outTransform.TransformDirection(relativeForwardDir);
 
         Quaternion newLookRotation = Quaternion.LookRotation(newForwardDir, newUpDir);
-        renderCamera.transform.localRotation = Quaternion.Euler(0, 180, 0) * newLookRotation;
+        portalCamera.transform.localRotation = Quaternion.Euler(0, 180, 0) * newLookRotation;
 
         // Set the camera's oblique view frustum.
         Plane p = new Plane(-outTransform.forward, outTransform.position);
         Vector4 clipPlane = new Vector4(p.normal.x, p.normal.y, p.normal.z, p.distance);
         Vector4 clipPlaneCameraSpace =
-            Matrix4x4.Transpose(Matrix4x4.Inverse(renderCamera.worldToCameraMatrix)) * clipPlane;
+            Matrix4x4.Transpose(Matrix4x4.Inverse(portalCamera.worldToCameraMatrix)) * clipPlane;
 
         var newMatrix = mainCamera.CalculateObliqueMatrix(clipPlaneCameraSpace);
-        renderCamera.projectionMatrix = newMatrix;
+        portalCamera.projectionMatrix = newMatrix;
 
         // Render the camera to its render target.
-        renderCamera.Render();
+        portalCamera.Render();
     }
 }
