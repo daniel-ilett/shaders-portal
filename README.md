@@ -1,6 +1,8 @@
 # Shaders - Portals
 A showcase of shader effects to replicate portals in videogames.
 
+![Portals Banner](banner.jpg)
+
 ## Overview
 
 This project is all about portals. Stepping outside of pure shader work and into the world of C# scripting, this series goes a lot more in-depth with the link between scripting and shaders than my previous work, highlighting the importance of making both sides work together.

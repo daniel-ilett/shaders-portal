@@ -10,7 +10,7 @@
         Tags
 		{ 
 			"RenderType" = "Opaque" 
-			"Queue" = "Geometry+1" 
+			"Queue" = "Geometry" 
 		}
 
         Pass
