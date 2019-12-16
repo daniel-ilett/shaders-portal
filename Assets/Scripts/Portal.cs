@@ -8,6 +8,12 @@ public class Portal : MonoBehaviour
     [SerializeField]
     private Portal otherPortal;
 
+    [SerializeField]
+    private Renderer outlineRenderer;
+
+    [SerializeField]
+    private Color portalColour;
+
     private List<Rigidbody> rigidbodies = new List<Rigidbody>();
 
     private Material material;
@@ -18,7 +24,7 @@ public class Portal : MonoBehaviour
     {
         collider = GetComponent<BoxCollider>();
         renderer = GetComponent<Renderer>();
-        material = GetComponent<Renderer>().material;
+        material = renderer.material;
     }
 
     private void Start()
@@ -28,6 +34,7 @@ public class Portal : MonoBehaviour
             collider.size.y - diameter, collider.size.z);
 
         PlacePortal(transform.position, transform.forward, transform.up);
+        SetColour(portalColour);
     }
 
     private void Update()
@@ -41,6 +48,12 @@ public class Portal : MonoBehaviour
                 Warp(rigidbodies[i]);
             }
         }
+    }
+
+    public void SetColour(Color colour)
+    {
+        material.SetColor("_Colour", colour);
+        outlineRenderer.material.SetColor("_OutlineColour", colour);
     }
 
     public void SetMaskID(int id)

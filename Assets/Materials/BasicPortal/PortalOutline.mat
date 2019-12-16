@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: PortalOutlineOrange
+  m_Name: PortalOutline
   m_Shader: {fileID: 4800000, guid: f6293919533b0084cbdde92867f940b6, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -77,4 +77,4 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _OutlineColour: {r: 1, g: 0.4002926, b: 0, a: 1}
+    - _OutlineColour: {r: 0, g: 0.58446574, b: 1, a: 1}

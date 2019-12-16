@@ -282,6 +282,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   otherPortal: {fileID: 7680122345976626394}
+  outlineRenderer: {fileID: 1475025392}
+  portalColour: {r: 1, g: 0.4, b: 0, a: 1}
 --- !u!65 &3843270695954744992
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -322,14 +324,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7898277513340324219}
-  m_LocalRotation: {x: 0.000000010589176, y: 0.7071068, z: -0.000000019213147, w: 0.7071068}
-  m_LocalPosition: {x: 17, y: 8, z: 3}
+  m_LocalRotation: {x: -0.000000019213148, y: -0.70710677, z: -0.00000001058918, w: 0.7071069}
+  m_LocalPosition: {x: 24, y: 20, z: 28}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1777796467}
   m_Father: {fileID: 1486743274199525980}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 90.00001, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90.00001, z: 0}
 --- !u!33 &7898277513340324222
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -389,6 +391,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   otherPortal: {fileID: 7680122345725460989}
+  outlineRenderer: {fileID: 1777796468}
+  portalColour: {r: 0, g: 0.58431375, b: 1, a: 1}
 --- !u!65 &3843270695953202055
 BoxCollider:
   m_ObjectHideFlags: 0

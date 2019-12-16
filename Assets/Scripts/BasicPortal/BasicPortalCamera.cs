@@ -70,7 +70,7 @@ public class BasicPortalCamera : MonoBehaviour
         Quaternion relativeRot = Quaternion.Inverse(inTransform.rotation) * transform.rotation;
         relativeRot = Quaternion.Euler(0.0f, 180.0f, 0.0f) * relativeRot;
         portalCamera.transform.rotation = outTransform.rotation * relativeRot;
-
+        
         // Set the camera's oblique view frustum.
         Plane p = new Plane(-outTransform.forward, outTransform.position);
         Vector4 clipPlane = new Vector4(p.normal.x, p.normal.y, p.normal.z, p.distance);
