@@ -132,6 +132,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d80c73be3fe0d35469084ced2f981279, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &338639931 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3869327201008158686, guid: 09a391e652641814aa700d3d3c095ceb,
+    type: 3}
+  m_PrefabInstance: {fileID: 3869327201569348821}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &338639942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 338639931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9581fdc03f0e386459a466474b74272c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inPortal: {fileID: 1834815056}
+  outPortal: {fileID: 1235240773}
 --- !u!1001 &358641725
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -367,6 +387,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e0f285c21cdcf14e8d5c06c57ba936b, type: 3}
+--- !u!4 &1235240773 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7898277513340324223, guid: d57a2f96f975865429f885c2088977d1,
+    type: 3}
+  m_PrefabInstance: {fileID: 6348532137572285396}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1271385945 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7680122345725460989, guid: d57a2f96f975865429f885c2088977d1,
@@ -454,6 +480,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 344fe101c0a2b4040983d49ec46050ec, type: 3}
+--- !u!4 &1834815056 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7898277512799810648, guid: d57a2f96f975865429f885c2088977d1,
+    type: 3}
+  m_PrefabInstance: {fileID: 6348532137572285396}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3869327201569348821
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -664,6 +696,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1777796466, guid: d57a2f96f975865429f885c2088977d1, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1777796467, guid: d57a2f96f975865429f885c2088977d1, type: 3}
+      propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -39,11 +39,11 @@ public class Portal : MonoBehaviour
 
     private void Update()
     {
-        for(int i = 0; i < rigidbodies.Count; ++i)
+        for (int i = 0; i < rigidbodies.Count; ++i)
         {
             Vector3 objPos = transform.InverseTransformPoint(rigidbodies[i].position);
-            
-            if(objPos.z > 0.0f)
+
+            if (objPos.z > 0.0f)
             {
                 Warp(rigidbodies[i]);
             }
@@ -77,8 +77,7 @@ public class Portal : MonoBehaviour
         Vector3 upDir = transform.InverseTransformDirection(warpObj.transform.up);
         Vector3 fwdDir = transform.InverseTransformDirection(warpObj.transform.forward);
 
-        pos.z *= -1;
-        pos.x *= -1;
+        pos = Quaternion.Euler(0.0f, 180.0f, 0.0f) * pos;
 
         warpObj.transform.position = otherPortal.transform.TransformPoint(pos);
 
@@ -87,6 +86,12 @@ public class Portal : MonoBehaviour
         Quaternion lookRot = Quaternion.LookRotation(newFwdDir, newUpDir);
 
         warpObj.transform.rotation = Quaternion.Euler(0, 180, 0) * lookRot;
+
+        var velocity = transform.InverseTransformDirection(warpObj.velocity);
+        velocity = Quaternion.Euler(0.0f, 180.0f, 0.0f) * velocity;
+        velocity = otherPortal.transform.TransformDirection(velocity);
+
+        warpObj.velocity = velocity;
     }
 
     private void OnTriggerEnter(Collider other)
