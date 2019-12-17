@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3869327200655888827}
   - component: {fileID: 3869327200655888824}
   m_Layer: 0
-  m_Name: PortalCamera 1
+  m_Name: PortalCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -92,6 +92,7 @@ GameObject:
   - component: {fileID: 124133514}
   - component: {fileID: 124133510}
   - component: {fileID: 124133511}
+  - component: {fileID: 338639942}
   m_Layer: 8
   m_Name: PlayerCamera
   m_TagString: MainCamera
@@ -179,7 +180,7 @@ MonoBehaviour:
   portals:
   - {fileID: 0}
   - {fileID: 0}
-  portalCamera: {fileID: 0}
+  portalCamera: {fileID: 3869327200655888824}
   portalMaterial: {fileID: 2100000, guid: d30be3960632bc249ae285a4c5fed3d2, type: 2}
 --- !u!54 &124133512
 Rigidbody:
@@ -281,6 +282,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 609b91f43b8682c41bc1d55f208fc5de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &338639942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3869327201008158686}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9581fdc03f0e386459a466474b74272c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inPortal: {fileID: 0}
+  outPortal: {fileID: 0}
 --- !u!1 &3869327201516543202
 GameObject:
   m_ObjectHideFlags: 0
