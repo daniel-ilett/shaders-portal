@@ -14,7 +14,9 @@ public class Portal : MonoBehaviour
     [SerializeField]
     private Color portalColour;
 
-    private List<Rigidbody> rigidbodies = new List<Rigidbody>();
+    private bool isPlaced = true;
+
+    private List<PortalableObject> portalObjects = new List<PortalableObject>();
 
     private Material material;
     private new Renderer renderer;
@@ -39,13 +41,13 @@ public class Portal : MonoBehaviour
 
     private void Update()
     {
-        for (int i = 0; i < rigidbodies.Count; ++i)
+        for (int i = 0; i < portalObjects.Count; ++i)
         {
-            Vector3 objPos = transform.InverseTransformPoint(rigidbodies[i].position);
+            Vector3 objPos = transform.InverseTransformPoint(portalObjects[i].transform.position);
 
             if (objPos.z > 0.0f)
             {
-                Warp(rigidbodies[i]);
+                portalObjects[i].Warp();
             }
         }
     }
@@ -96,10 +98,11 @@ public class Portal : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        var otherRigidbody = other.GetComponent<Rigidbody>();
-        if (otherRigidbody != null)
+        var obj = other.GetComponent<PortalableObject>();
+        if (obj != null)
         {
-            rigidbodies.Add(otherRigidbody);
+            portalObjects.Add(obj);
+            obj.SetIsInPortal(this, otherPortal);
 
             var player = other.GetComponent<PlayerController>();
             if(player != null)
@@ -111,11 +114,12 @@ public class Portal : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        var otherRigidbody = other.GetComponent<Rigidbody>();
+        var obj = other.GetComponent<PortalableObject>();
 
-        if(rigidbodies.Contains(otherRigidbody))
+        if(portalObjects.Contains(obj))
         {
-            rigidbodies.Remove(otherRigidbody);
+            portalObjects.Remove(obj);
+            obj.ExitPortal();
 
             var player = other.GetComponent<PlayerController>();
             if (player != null)
@@ -130,5 +134,18 @@ public class Portal : MonoBehaviour
         transform.position = pos;
         transform.rotation = Quaternion.LookRotation(hitNormal, up);
         transform.position -= transform.forward * 0.001f;
+
+        isPlaced = true;
+    }
+
+    public void RemovePortal()
+    {
+        gameObject.SetActive(false);
+        isPlaced = false;
+    }
+
+    public bool IsPlaced()
+    {
+        return isPlaced;
     }
 }

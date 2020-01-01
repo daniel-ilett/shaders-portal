@@ -7,8 +7,7 @@ public class CameraMove : MonoBehaviour
 {
     private const float moveSpeed = 7.5f;
     private const float cameraSpeed = 3.0f;
-
-    private Vector2 rotation = Vector2.zero;
+    
     private Vector3 moveVector = Vector3.zero;
     private float moveY = 0.0f;
 
@@ -23,7 +22,7 @@ public class CameraMove : MonoBehaviour
     private void Update()
     {
         // Rotate the camera.
-        rotation = new Vector2(-Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"));
+        var rotation = new Vector2(-Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"));
         transform.eulerAngles += (Vector3)rotation * cameraSpeed;
 
         // Move the camera.
