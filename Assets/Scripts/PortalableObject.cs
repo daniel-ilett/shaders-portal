@@ -13,7 +13,7 @@ public class PortalableObject : MonoBehaviour
     private Portal inPortal;
     private Portal outPortal;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         cloneObject = new GameObject();
         cloneObject.SetActive(false);
@@ -26,6 +26,11 @@ public class PortalableObject : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if(inPortal == null || outPortal == null)
+        {
+            return;
+        }
+
         if(cloneObject.activeSelf && inPortal.IsPlaced() && outPortal.IsPlaced())
         {
             var inTransform = inPortal.transform;
@@ -56,7 +61,7 @@ public class PortalableObject : MonoBehaviour
         isInPortal = true;
     }
 
-    public void Warp()
+    public virtual void Warp()
     {
         var inTransform = inPortal.transform;
         var outTransform = outPortal.transform;

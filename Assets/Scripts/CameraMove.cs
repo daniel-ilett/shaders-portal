@@ -7,6 +7,8 @@ public class CameraMove : MonoBehaviour
 {
     private const float moveSpeed = 7.5f;
     private const float cameraSpeed = 3.0f;
+
+    private Quaternion targetRotation;
     
     private Vector3 moveVector = Vector3.zero;
     private float moveY = 0.0f;
@@ -17,13 +19,24 @@ public class CameraMove : MonoBehaviour
     {
         rigidbody = GetComponent<Rigidbody>();
         Cursor.lockState = CursorLockMode.Locked;
+
+        targetRotation = transform.rotation;
     }
 
     private void Update()
     {
         // Rotate the camera.
         var rotation = new Vector2(-Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"));
-        transform.eulerAngles += (Vector3)rotation * cameraSpeed;
+        var targetEuler = targetRotation.eulerAngles + (Vector3)rotation * cameraSpeed;
+        if(targetEuler.x > 180.0f)
+        {
+            targetEuler.x -= 360.0f;
+        }
+        targetEuler.x = Mathf.Clamp(targetEuler.x, -75.0f, 75.0f);
+        targetRotation = Quaternion.Euler(targetEuler);
+
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 
+            Time.deltaTime * 15.0f);
 
         // Move the camera.
         float x = Input.GetAxis("Horizontal");
@@ -38,5 +51,10 @@ public class CameraMove : MonoBehaviour
         Vector3 newVelocity = transform.TransformDirection(moveVector);
         newVelocity.y += moveY * moveSpeed;
         rigidbody.velocity = newVelocity;
+    }
+
+    public void ResetTargetRotation()
+    {
+        targetRotation = Quaternion.LookRotation(transform.forward, Vector3.up);
     }
 }

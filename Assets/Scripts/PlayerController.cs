@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(SphereCollider))]
-public class PlayerController : MonoBehaviour
+public class PlayerController : PortalableObject
 {
     [SerializeField]
     private Collider wallCollider;
 
     private int portalTriggerCount = 0;
 
+    private CameraMove cameraMove;
     private new SphereCollider collider;
 
     public static PlayerController instance
@@ -18,8 +19,11 @@ public class PlayerController : MonoBehaviour
         private set;
     }
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
+
+        cameraMove = GetComponent<CameraMove>();
         collider = GetComponent<SphereCollider>();
         instance = this;
     }
@@ -35,5 +39,11 @@ public class PlayerController : MonoBehaviour
 
         //Physics.IgnoreCollision(collider, wallCollider, (portalTriggerCount > 0));
         Physics.IgnoreLayerCollision(8, 9, (portalTriggerCount > 0));
+    }
+
+    public override void Warp()
+    {
+        base.Warp();
+        cameraMove.ResetTargetRotation();
     }
 }
