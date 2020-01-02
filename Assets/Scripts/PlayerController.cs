@@ -11,7 +11,7 @@ public class PlayerController : PortalableObject
     private int portalTriggerCount = 0;
 
     private CameraMove cameraMove;
-    private new SphereCollider collider;
+    protected new SphereCollider collider;
 
     public static PlayerController instance
     {

@@ -15,6 +15,8 @@ public class Portal : MonoBehaviour
     private Color portalColour;
 
     private bool isPlaced = true;
+    [SerializeField]
+    private Collider wallCollider;
 
     private List<PortalableObject> portalObjects = new List<PortalableObject>();
 
@@ -35,7 +37,7 @@ public class Portal : MonoBehaviour
         collider.size = new Vector3(collider.size.x - diameter,
             collider.size.y - diameter, collider.size.z);
 
-        PlacePortal(transform.position, transform.forward, transform.up);
+        PlacePortal(wallCollider, transform.position, transform.forward, transform.up);
         SetColour(portalColour);
     }
 
@@ -102,7 +104,7 @@ public class Portal : MonoBehaviour
         if (obj != null)
         {
             portalObjects.Add(obj);
-            obj.SetIsInPortal(this, otherPortal);
+            obj.SetIsInPortal(this, otherPortal, wallCollider);
 
             var player = other.GetComponent<PlayerController>();
             if(player != null)
@@ -119,7 +121,7 @@ public class Portal : MonoBehaviour
         if(portalObjects.Contains(obj))
         {
             portalObjects.Remove(obj);
-            obj.ExitPortal();
+            obj.ExitPortal(wallCollider);
 
             var player = other.GetComponent<PlayerController>();
             if (player != null)
@@ -129,8 +131,9 @@ public class Portal : MonoBehaviour
         }
     }
 
-    private void PlacePortal(Vector3 pos, Vector3 hitNormal, Vector3 up)
+    private void PlacePortal(Collider wallCollider, Vector3 pos, Vector3 hitNormal, Vector3 up)
     {
+        this.wallCollider = wallCollider;
         transform.position = pos;
         transform.rotation = Quaternion.LookRotation(hitNormal, up);
         transform.position -= transform.forward * 0.001f;
