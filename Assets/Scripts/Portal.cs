@@ -33,9 +33,11 @@ public class Portal : MonoBehaviour
 
     private void Start()
     {
+        /*
         var diameter = PlayerController.instance.GetColliderRadius() * 3.0f;
         collider.size = new Vector3(collider.size.x - diameter,
             collider.size.y - diameter, collider.size.z);
+        */
 
         PlacePortal(wallCollider, transform.position, transform.forward, transform.up);
         SetColour(portalColour);
