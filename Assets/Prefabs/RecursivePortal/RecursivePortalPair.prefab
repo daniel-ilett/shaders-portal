@@ -135,7 +135,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7b427c2c2cb17db46b5cb3e33e7a9429, type: 2}
+  - {fileID: 2100000, guid: 1795957e7f0fc7b4aa5269f37d65217a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -216,7 +216,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8708287373399788272}
   m_LocalRotation: {x: -0, y: 0.000000014901161, z: -0, w: 1}
-  m_LocalPosition: {x: -2, y: 8, z: 10}
+  m_LocalPosition: {x: -2.5, y: 8, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1197420492}
@@ -248,7 +248,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f7d04dab3eb84fc4d84c446dac64de77, type: 2}
+  - {fileID: 2100000, guid: e13c8c2f267c67d4f9ae9263957c009b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -282,6 +282,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   otherPortal: {fileID: 9210734398064362102}
+  outlineRenderer: {fileID: 1197420493}
+  portalColour: {r: 1, g: 0.4, b: 0, a: 1}
+  wallCollider: {fileID: 0}
 --- !u!65 &2310442140362995724
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -322,14 +325,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8708287374288484311}
-  m_LocalRotation: {x: 0.000000021073426, y: 1, z: -0.000000006098067, w: 0.000000014901161}
-  m_LocalPosition: {x: -2, y: 8, z: -0}
+  m_LocalRotation: {x: 0.00000003161001, y: 1, z: -0.000000052683653, w: -0.00000049173826}
+  m_LocalPosition: {x: -2.5, y: 8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2067283979}
   m_Father: {fileID: 137260378139514096}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 180.00002, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 179.99998, z: 0}
 --- !u!33 &8708287374288484306
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -389,6 +392,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   otherPortal: {fileID: 9210734397624516433}
+  outlineRenderer: {fileID: 2067283980}
+  portalColour: {r: 0, g: 0.58431375, b: 1, a: 1}
+  wallCollider: {fileID: 0}
 --- !u!65 &2310442140013266219
 BoxCollider:
   m_ObjectHideFlags: 0

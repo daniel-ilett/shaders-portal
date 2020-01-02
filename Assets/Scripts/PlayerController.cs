@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerController : PortalableObject
 {
     private CameraMove cameraMove;
-    protected new SphereCollider collider;
+    private new SphereCollider collider;
 
     public static PlayerController instance
     {

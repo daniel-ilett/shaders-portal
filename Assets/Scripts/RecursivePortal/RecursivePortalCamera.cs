@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RecursivePortalCamera : PortalCamera
+public class RecursivePortalCamera : MonoBehaviour
 {
     [SerializeField]
     private Portal[] portals = new Portal[2];
@@ -19,8 +19,6 @@ public class RecursivePortalCamera : PortalCamera
 
     private void Awake()
     {
-        isRecursive = true;
-
         mainCamera = GetComponent<Camera>();
 
         tempTexture1 = new RenderTexture(Screen.width, Screen.height, 24, RenderTextureFormat.ARGB32);

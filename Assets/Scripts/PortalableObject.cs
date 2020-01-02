@@ -18,28 +18,25 @@ public class PortalableObject : MonoBehaviour
     private new Rigidbody rigidbody;
     protected new Collider collider;
 
-    private static Quaternion halfTurn = Quaternion.Euler(0.0f, 180.0f, 0.0f);
+    private static readonly Quaternion halfTurn = Quaternion.Euler(0.0f, 180.0f, 0.0f);
 
     protected virtual void Awake()
     {
-        if(PortalCamera.isRecursive)
-        {
-            cloneObject = new GameObject();
-            cloneObject.SetActive(false);
-            var meshFilter = cloneObject.AddComponent<MeshFilter>();
-            var meshRenderer = cloneObject.AddComponent<MeshRenderer>();
+        cloneObject = new GameObject();
+        cloneObject.SetActive(false);
+        var meshFilter = cloneObject.AddComponent<MeshFilter>();
+        var meshRenderer = cloneObject.AddComponent<MeshRenderer>();
 
-            meshFilter.mesh = GetComponent<MeshFilter>().mesh;
-            meshRenderer.materials = GetComponent<MeshRenderer>().materials;
-        }
+        meshFilter.mesh = GetComponent<MeshFilter>().mesh;
+        meshRenderer.materials = GetComponent<MeshRenderer>().materials;
 
         rigidbody = GetComponent<Rigidbody>();
         collider = GetComponent<Collider>();
     }
 
-    private void FixedUpdate()
+    private void LateUpdate()
     {
-        if(!PortalCamera.isRecursive || inPortal == null || outPortal == null)
+        if(inPortal == null || outPortal == null)
         {
             return;
         }
@@ -68,10 +65,7 @@ public class PortalableObject : MonoBehaviour
 
         Physics.IgnoreCollision(collider, wallCollider);
 
-        if (PortalCamera.isRecursive)
-        {
-            cloneObject.SetActive(true);
-        }
+        cloneObject.SetActive(true);
 
         ++inPortalCount;
     }
@@ -102,7 +96,7 @@ public class PortalableObject : MonoBehaviour
         Physics.IgnoreCollision(collider, wallCollider, false);
         --inPortalCount;
 
-        if (inPortalCount == 0 && PortalCamera.isRecursive)
+        if (inPortalCount == 0)
         {
             cloneObject.SetActive(false);
         }
