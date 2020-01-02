@@ -75,29 +75,6 @@ public class Portal : MonoBehaviour
         return renderer.isVisible;
     }
 
-    private void Warp(Rigidbody warpObj)
-    {
-        Vector3 pos = transform.InverseTransformPoint(warpObj.position);
-        Vector3 upDir = transform.InverseTransformDirection(warpObj.transform.up);
-        Vector3 fwdDir = transform.InverseTransformDirection(warpObj.transform.forward);
-
-        pos = Quaternion.Euler(0.0f, 180.0f, 0.0f) * pos;
-
-        warpObj.transform.position = otherPortal.transform.TransformPoint(pos);
-
-        var newUpDir = otherPortal.transform.TransformDirection(upDir);
-        var newFwdDir = otherPortal.transform.TransformDirection(fwdDir);
-        Quaternion lookRot = Quaternion.LookRotation(newFwdDir, newUpDir);
-
-        warpObj.transform.rotation = Quaternion.Euler(0, 180, 0) * lookRot;
-
-        var velocity = transform.InverseTransformDirection(warpObj.velocity);
-        velocity = Quaternion.Euler(0.0f, 180.0f, 0.0f) * velocity;
-        velocity = otherPortal.transform.TransformDirection(velocity);
-
-        warpObj.velocity = velocity;
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         var obj = other.GetComponent<PortalableObject>();
@@ -105,12 +82,6 @@ public class Portal : MonoBehaviour
         {
             portalObjects.Add(obj);
             obj.SetIsInPortal(this, otherPortal, wallCollider);
-
-            var player = other.GetComponent<PlayerController>();
-            if(player != null)
-            {
-                player.ChangePortalTriggerCount(1);
-            }
         }
     }
 
@@ -122,12 +93,6 @@ public class Portal : MonoBehaviour
         {
             portalObjects.Remove(obj);
             obj.ExitPortal(wallCollider);
-
-            var player = other.GetComponent<PlayerController>();
-            if (player != null)
-            {
-                player.ChangePortalTriggerCount(-1);
-            }
         }
     }
 
