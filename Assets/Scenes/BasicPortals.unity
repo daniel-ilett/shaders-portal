@@ -652,35 +652,6 @@ PrefabInstance:
       propertyPath: portals.Array.data[1]
       value: 
       objectReference: {fileID: 1271385945}
-    - target: {fileID: 124133510, guid: 09a391e652641814aa700d3d3c095ceb, type: 3}
-      propertyPath: wallCollider
-      value: 
-      objectReference: {fileID: 669220522}
-    - target: {fileID: 3869327201008158683, guid: 09a391e652641814aa700d3d3c095ceb,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3869327201008158683, guid: 09a391e652641814aa700d3d3c095ceb,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3869327201008158683, guid: 09a391e652641814aa700d3d3c095ceb,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3869327201008158683, guid: 09a391e652641814aa700d3d3c095ceb,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3869327201008158683, guid: 09a391e652641814aa700d3d3c095ceb,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09a391e652641814aa700d3d3c095ceb, type: 3}
 --- !u!1001 &6348532137572285396

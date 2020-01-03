@@ -29,6 +29,7 @@ public class PortalableObject : MonoBehaviour
 
         meshFilter.mesh = GetComponent<MeshFilter>().mesh;
         meshRenderer.materials = GetComponent<MeshRenderer>().materials;
+        cloneObject.transform.localScale = transform.localScale;
 
         rigidbody = GetComponent<Rigidbody>();
         collider = GetComponent<Collider>();
@@ -55,6 +56,10 @@ public class PortalableObject : MonoBehaviour
             Quaternion relativeRot = Quaternion.Inverse(inTransform.rotation) * transform.rotation;
             relativeRot = halfTurn * relativeRot;
             cloneObject.transform.rotation = outTransform.rotation * relativeRot;
+        }
+        else
+        {
+            cloneObject.transform.position = new Vector3(-1000.0f, 1000.0f, -1000.0f);
         }
     }
 
@@ -89,6 +94,11 @@ public class PortalableObject : MonoBehaviour
         Vector3 relativeVel = inTransform.InverseTransformDirection(rigidbody.velocity);
         relativeVel = halfTurn * relativeVel;
         rigidbody.velocity = outTransform.TransformDirection(relativeVel);
+
+        // Swap portal references.
+        var tmp = inPortal;
+        inPortal = outPortal;
+        outPortal = tmp;
     }
 
     public void ExitPortal(Collider wallCollider)
