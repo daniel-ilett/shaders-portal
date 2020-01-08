@@ -408,7 +408,7 @@ MonoBehaviour:
   portalColour: {r: 1, g: 0.4, b: 0, a: 1}
   placementMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
   wallCollider: {fileID: 0}
 --- !u!65 &3843270695954744992
 BoxCollider:
@@ -522,7 +522,7 @@ MonoBehaviour:
   portalColour: {r: 0, g: 0.58431375, b: 1, a: 1}
   placementMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
   wallCollider: {fileID: 0}
 --- !u!65 &3843270695953202055
 BoxCollider:

@@ -33,7 +33,12 @@ public class RecursivePortalCamera : MonoBehaviour
 
     private void OnPreRender()
     {
-        if(portals[0].IsRendererVisible())
+        if (!portals[0].IsPlaced() || !portals[1].IsPlaced())
+        {
+            return;
+        }
+
+        if (portals[0].IsRendererVisible())
         {
             portalCamera.targetTexture = tempTexture1;
             for (int i = iterations - 1; i >= 0; --i)

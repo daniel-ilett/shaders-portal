@@ -25,15 +25,15 @@ public class PortalPlacement : MonoBehaviour
     {
         if(Input.GetButtonDown("Fire1"))
         {
-            PlacePortal(0, transform.position, transform.forward);
+            FirePortal(0, transform.position, transform.forward);
         }
         else if (Input.GetButtonDown("Fire2"))
         {
-            PlacePortal(1, transform.position, transform.forward);
+            FirePortal(1, transform.position, transform.forward);
         }
     }
 
-    private void PlacePortal(int portalID, Vector3 pos, Vector3 dir)
+    private void FirePortal(int portalID, Vector3 pos, Vector3 dir)
     {
         RaycastHit hit;
         Physics.Raycast(pos, dir, out hit, 250.0f, layerMask);
@@ -61,7 +61,7 @@ public class PortalPlacement : MonoBehaviour
                 relativeDir = Quaternion.Euler(0.0f, 180.0f, 0.0f) * relativeDir;
                 dir = outPortal.transform.TransformDirection(relativeDir);
 
-                PlacePortal(portalID, pos, dir);
+                FirePortal(portalID, pos, dir);
 
                 return;
             }
@@ -84,18 +84,9 @@ public class PortalPlacement : MonoBehaviour
 
             var portalRotation = Quaternion.LookRotation(portalForward, portalUp);
             
-            var placed = portals.Portals[portalID].PlacePortal(hit.collider, hit.point, portalRotation);
+            portals.Portals[portalID].PlacePortal(hit.collider, hit.point, portalRotation);
 
-            crosshair.SetPortalPlaced(portalID, placed);
-
-            if(placed)
-            {
-                Debug.Log(hit.collider.gameObject);
-            }
-            else
-            {
-                Debug.Log("Not placed");
-            }
+            crosshair.SetPortalPlaced(portalID, true);
         }
     }
 }

@@ -105,7 +105,7 @@ public class Portal : MonoBehaviour
         }
     }
 
-    public bool PlacePortal(Collider wallCollider, Vector3 pos, Quaternion rot)
+    public void PlacePortal(Collider wallCollider, Vector3 pos, Quaternion rot)
     {
         this.wallCollider = wallCollider;
         transform.position = pos;
@@ -114,12 +114,9 @@ public class Portal : MonoBehaviour
 
         FixOverhangs();
         FixIntersects();
-
-        isPlaced = true;
-
-        return true;
     }
 
+    // Ensure the portal cannot extend past the edge of a surface.
     private void FixOverhangs()
     {
         var testPoints = new List<Vector3>
@@ -156,6 +153,7 @@ public class Portal : MonoBehaviour
         }
     }
 
+    // Ensure the portal cannot intersect a section of wall.
     private void FixIntersects()
     {
         var testDirs = new List<Vector3>
@@ -181,6 +179,18 @@ public class Portal : MonoBehaviour
                 transform.Translate(newOffset, Space.World);
             }
         }
+    }
+
+    // Once positioning has taken place, ensure the portal isn't intersecting anything.
+    private bool CheckOverlap()
+    {
+        var checkPosition = transform.position - new Vector3(0.0f, 0.0f, 0.1f);
+        var checkExtents = new Vector3(0.9f, 1.9f, 0.05f);
+        if (Physics.CheckBox(checkPosition, checkExtents, transform.rotation, placementMask))
+        {
+            return false;
+        }
+        return true;
     }
 
     public void RemovePortal()
