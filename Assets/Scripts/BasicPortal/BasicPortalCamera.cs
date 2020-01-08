@@ -36,7 +36,15 @@ public class BasicPortalCamera : MonoBehaviour
 
     private void OnRenderImage(RenderTexture src, RenderTexture dst)
     {
-        if(portals[0].IsRendererVisible())
+        /*
+        if (!portals[0].IsPlaced() || !portals[1].IsPlaced())
+        {
+            Graphics.Blit(src, dst);
+            return;
+        }
+        */
+
+        if (portals[0].IsRendererVisible())
         {
             // Render the first portal output onto the image.
             RenderCamera(portals[0], portals[1]);

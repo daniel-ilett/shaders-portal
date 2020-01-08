@@ -92,6 +92,7 @@ GameObject:
   - component: {fileID: 681960816}
   - component: {fileID: 681960811}
   - component: {fileID: 681960812}
+  - component: {fileID: 6588010296366834766}
   m_Layer: 8
   m_Name: PlayerCamera
   m_TagString: MainCamera
@@ -267,7 +268,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9be0ad2dfdb8c31448bdc9e9ef591aec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wallCollider: {fileID: 0}
 --- !u!114 &681960812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -280,6 +280,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 609b91f43b8682c41bc1d55f208fc5de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6588010296366834766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4726988590624584906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4f8ba086347dad4cb1bbbcf835540b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  portals: {fileID: 0}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 1537
 --- !u!1 &4726988592218370038
 GameObject:
   m_ObjectHideFlags: 0

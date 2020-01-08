@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1475025391}
   - component: {fileID: 1475025393}
   - component: {fileID: 1475025392}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Outline
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 1777796467}
   - component: {fileID: 1777796469}
   - component: {fileID: 1777796468}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Outline
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,7 +105,7 @@ Transform:
   m_GameObject: {fileID: 1777796466}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.1, y: 1.05, z: 0.5}
+  m_LocalScale: {x: 1.1, y: 1.05, z: 1}
   m_Children: []
   m_Father: {fileID: 7898277513340324223}
   m_RootOrder: 1
@@ -135,7 +135,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 1795957e7f0fc7b4aa5269f37d65217a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -165,9 +165,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1486743274199525980}
-  m_Layer: 0
+  - component: {fileID: 6348532137572285398}
+  m_Layer: 10
   m_Name: PortalPair
-  m_TagString: Untagged
+  m_TagString: Portal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -188,6 +189,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6348532137572285398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1804399189569016753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab881504e307bbb40a3293bc7b62f3e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2045828421868704287
 GameObject:
   m_ObjectHideFlags: 0
@@ -199,7 +212,7 @@ GameObject:
   - component: {fileID: 6111292925936990101}
   - component: {fileID: 4466916953655013831}
   - component: {fileID: 6828776805420997696}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -253,7 +266,7 @@ GameObject:
   - component: {fileID: 7412547148963946094}
   - component: {fileID: 3737027123428617178}
   - component: {fileID: 2097257309320883735}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -309,7 +322,7 @@ GameObject:
   - component: {fileID: 7898277512799810654}
   - component: {fileID: 7680122345725460989}
   - component: {fileID: 3843270695954744992}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Portal 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -323,15 +336,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7898277512799810652}
-  m_LocalRotation: {x: -0, y: 0.000000014901161, z: -0, w: 1}
-  m_LocalPosition: {x: -2, y: 8, z: 10}
+  m_LocalRotation: {x: 0.5000003, y: -0.50000024, z: 0.49999973, w: 0.49999985}
+  m_LocalPosition: {x: 5.5, y: 6, z: 13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6111292925936990101}
   - {fileID: 1475025391}
   m_Father: {fileID: 1486743274199525980}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90.00001, y: 0, z: 90.00001}
 --- !u!33 &7898277512799810649
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -420,7 +433,7 @@ GameObject:
   - component: {fileID: 7898277513340324217}
   - component: {fileID: 7680122345976626394}
   - component: {fileID: 3843270695953202055}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Portal 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -434,15 +447,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7898277513340324219}
-  m_LocalRotation: {x: -0.000000019213148, y: -0.70710677, z: -0.00000001058918, w: 0.7071069}
-  m_LocalPosition: {x: 24, y: 20, z: 28}
+  m_LocalRotation: {x: 0.000000147514, y: -0.70710653, z: 0.70710707, w: 0.00000014751389}
+  m_LocalPosition: {x: -2, y: 6, z: 4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7412547148963946094}
   - {fileID: 1777796467}
   m_Father: {fileID: 1486743274199525980}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -90.00001, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: -180, z: 0}
 --- !u!33 &7898277513340324222
 MeshFilter:
   m_ObjectHideFlags: 0
