@@ -324,7 +324,7 @@ GameObject:
   - component: {fileID: 3843270695954744992}
   m_Layer: 10
   m_Name: Portal 2
-  m_TagString: Untagged
+  m_TagString: Portal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -406,6 +406,9 @@ MonoBehaviour:
   otherPortal: {fileID: 7680122345976626394}
   outlineRenderer: {fileID: 1475025392}
   portalColour: {r: 1, g: 0.4, b: 0, a: 1}
+  placementMask:
+    serializedVersion: 2
+    m_Bits: 0
   wallCollider: {fileID: 0}
 --- !u!65 &3843270695954744992
 BoxCollider:
@@ -435,7 +438,7 @@ GameObject:
   - component: {fileID: 3843270695953202055}
   m_Layer: 10
   m_Name: Portal 1
-  m_TagString: Untagged
+  m_TagString: Portal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -517,6 +520,9 @@ MonoBehaviour:
   otherPortal: {fileID: 7680122345725460989}
   outlineRenderer: {fileID: 1777796468}
   portalColour: {r: 0, g: 0.58431375, b: 1, a: 1}
+  placementMask:
+    serializedVersion: 2
+    m_Bits: 0
   wallCollider: {fileID: 0}
 --- !u!65 &3843270695953202055
 BoxCollider:

@@ -53,6 +53,11 @@ public class Portal : MonoBehaviour
         }
     }
 
+    public Portal GetOtherPortal()
+    {
+        return otherPortal;
+    }
+
     public Color GetColour()
     {
         return portalColour;

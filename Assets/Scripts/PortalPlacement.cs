@@ -25,21 +25,47 @@ public class PortalPlacement : MonoBehaviour
     {
         if(Input.GetButtonDown("Fire1"))
         {
-            PlacePortal(0);
+            PlacePortal(0, transform.position, transform.forward);
         }
         else if (Input.GetButtonDown("Fire2"))
         {
-            PlacePortal(1);
+            PlacePortal(1, transform.position, transform.forward);
         }
     }
 
-    private void PlacePortal(int portalID)
+    private void PlacePortal(int portalID, Vector3 pos, Vector3 dir)
     {
         RaycastHit hit;
-        Physics.Raycast(transform.position, transform.forward, out hit, 250.0f, layerMask);
+        Physics.Raycast(pos, dir, out hit, 250.0f, layerMask);
 
         if(hit.collider != null)
         {
+            if (hit.collider.tag == "Portal")
+            {
+                var inPortal = hit.collider.GetComponent<Portal>();
+
+                if(inPortal == null)
+                {
+                    return;
+                }
+
+                var outPortal = inPortal.GetOtherPortal();
+
+                // Update position of raycast origin with small offset.
+                Vector3 relativePos = inPortal.transform.InverseTransformPoint(hit.point + dir);
+                relativePos = Quaternion.Euler(0.0f, 180.0f, 0.0f) * relativePos;
+                pos = outPortal.transform.TransformPoint(relativePos);
+
+                // Update direction of raycast.
+                Vector3 relativeDir = inPortal.transform.InverseTransformDirection(dir);
+                relativeDir = Quaternion.Euler(0.0f, 180.0f, 0.0f) * relativeDir;
+                dir = outPortal.transform.TransformDirection(relativeDir);
+
+                PlacePortal(portalID, pos, dir);
+
+                return;
+            }
+
             var cameraRotation = cameraMove.TargetRotation;
 
             var portalRight = cameraRotation * Vector3.right;
