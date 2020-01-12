@@ -145,7 +145,7 @@ public class Portal : MonoBehaviour
             {
                 break;
             }
-            else if(Physics.Raycast(raycastPos, raycastDir, out hit, 2.2f, placementMask))
+            else if(Physics.Raycast(raycastPos, raycastDir, out hit, 2.1f, placementMask))
             {
                 var offset = hit.point - raycastPos;
                 transform.Translate(offset, Space.World);
